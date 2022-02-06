@@ -589,29 +589,29 @@ section {
   background-color: white;
 }
 
-.section-title {
+.section-title2 {
   text-align: center;
   padding-bottom: 30px;
 }
 
-.section-title h2 {
+.section-title2 h2 {
   margin: 15px 0 0 0;
   font-size: 32px;
   font-weight: 700;
   color: #5f5950;
 }
 
-.section-title h2 span {
+.section-title2 h2 span {
   color: #3bc1ff;
 }
 
-.section-title p {
+.section-title2 p {
   margin: 15px auto 0 auto;
   font-weight: 300;
 }
 
 @media (min-width: 1024px) {
-  .section-title p {
+  .section-title2 p {
     width: 50%;
   }
 }
