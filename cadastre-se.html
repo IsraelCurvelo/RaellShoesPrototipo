@@ -96,7 +96,11 @@
                         <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Gênero</span>
                             <br>
-                            <select  asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()" class="form-select" required></select>   
+                            <select  asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()" class="form-select" required>
+                                <option  value="0"></option>
+                                <option value="1">Masculino</option>
+                                <option value="2">Feminino</option>
+                            </select>   
                             
                         </div>
 
@@ -117,9 +121,14 @@
                 <div class="row" style="padding-top: 10px;">
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Tipo</span>
-                        <select asp-for="Telefone.TipoTelefone" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoTelefone>()" class="form-select" required></select>                        
+                        <select asp-for="Telefone.TipoTelefone" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoTelefone>()" class="form-select" required>
+                            <option value="0"></option>
+                            <option value="1">Telefone</option>
+                            <option value="2">Celular</option> 
+                        </select>                        
+                                                      
                         <div class="invalid-feedback">
-                            *Campo obrigatório
+                        *Campo obrigatório
                         </div>
                     </div>
 
@@ -156,7 +165,7 @@
 
                     <div class="row">
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                            <span>Tipo de Endereço</span>
+                            <span>Tipo de Endereço</span><i class="bi bi-lock"></i>
                             <select asp-for="Endereco.TipoEndereco" class="form-select" disabled required>
                                 <option>Residencial</option>
                             </select>                            
@@ -506,7 +515,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                                 <span>Email</span>
-                                <input asp-for="Usuario.Email" type="email" class="form-control" id="emailuser" placeholder="Digite seu email" readonly >
+                                <i class="bi bi-lock"></i><input asp-for="Usuario.Email" type="email" class="form-control" id="emailuser" placeholder="Digite seu email" readonly value="raellcurvelo@gmail.com" >
                             </div>
 
                             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
