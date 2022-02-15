@@ -92,7 +92,7 @@
 
 <!--Form-->
 <div class="container mt-5">
-<form asp-action="AlterarPerfil" method="post" id="form-cliente" class="needs-validation" novalidate>
+<form action="index-logado.html"  id="form-cliente" class="needs-validation" novalidate>
 
    <!--Box Dados Pessoais-->
    <div class="info-wrap">
@@ -107,7 +107,7 @@
                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Nome</span>
                    <input asp-for="Nome" class="form-control" id="name"
-                          placeholder="Digite seu primeiro nome" minlength="3" required>
+                          placeholder="Digite seu primeiro nome" minlength="3" required value="Israel">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -115,7 +115,7 @@
                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Sobrenome</span>
                    <input asp-for="Sobrenome" class="form-control" id="lastname"
-                          placeholder="Digite seu sobrenome" minlength="3" required>
+                          placeholder="Digite seu sobrenome" minlength="3" required value="A. Curvelo">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -124,7 +124,7 @@
                    <span>CPF</span>
                    <input asp-for="Cpf" class="form-control" id="cpf" placeholder="Digite seu CPF"
                           maxlength="14" onkeypress="formatar('###.###.###-##', this);" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"
-                          required>
+                          required value="123.123.123-12">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -132,7 +132,7 @@
                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Data de Nascimento</span>
                    <input asp-for="DataNascimento" class="form-control" id="dataNascimento"
-                          placeholder="Data de Nascimento" required>
+                          placeholder="Data de Nascimento" required value="01/02/2000">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -140,7 +140,11 @@
                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Gênero</span>
                    <br>
-                   <select asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()" class="form-select" required></select>
+                   <select asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()" class="form-select" required>
+                     <option></option>
+                     <option value="1" selected>Masculino</option>
+                     <option value="2">Feminino</option>
+                   </select>
 
                </div>
 
@@ -162,7 +166,11 @@
            <div class="row" style="padding-top: 10px;">
                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Tipo</span>
-                   <select asp-for="Telefone.TipoTelefone" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoTelefone>()" class="form-select" required></select>
+                   <select asp-for="Telefone.TipoTelefone" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoTelefone>()" class="form-select" required>
+                    <option ></option>
+                    <option value="1">Telefone</option>
+                    <option value="2" selected>Celular</option> 
+                   </select>
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -170,7 +178,7 @@
 
                <div class="col-lg-1 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>DDD</span>
-                   <input asp-for="Telefone.DDD" class="form-control" id="ddd" placeholder="Digite seu DDD" maxlength="2" pattern="[0-9]{2}" required>
+                   <input asp-for="Telefone.DDD" class="form-control" id="ddd" placeholder="Digite seu DDD" maxlength="2" pattern="[0-9]{2}" required value="11">
                    <div class="invalid-feedback">
                        *Campo obrigatório (2 Dígitos)
                    </div>
@@ -181,7 +189,7 @@
                    <span>Telefone</span>
                    <input asp-for="Telefone.Numero" class="form-control" id="telefone" placeholder="Digite seu Telefone" maxlength="10"
                           onkeypress="formatar('#####-####', this);" pattern="[0-9]{4}-[0-9]{5}||[0-9]{5}-[0-9]{4}"
-                          required>
+                          required value="98946-2969">
                    <div class="invalid-feedback">
                        *Campo obrigatório (9 ou 8 Dígitos)
                    </div>
@@ -202,7 +210,7 @@
 
            <div class="row">
                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                   <span>Tipo de Endereço</span>
+                   <span>Tipo de Endereço</span><i class="bi bi-lock"></i>
                    <select asp-for="Endereco.TipoEndereco" class="form-select" disabled required>
                        <option>Residencial</option>
                    </select>
@@ -210,7 +218,7 @@
                <div class="col-lg-10 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Nome do endereço</span>
                    <input asp-for="Endereco.Apelido" class="form-control" id="fraseendereco"
-                          placeholder="Dê um nome para este endereço" required>
+                          placeholder="Dê um nome para este endereço" required value="Casa Suzano">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -218,7 +226,15 @@
 
                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Tipo de Logradouro</span>
-                   <select asp-for="Endereco.TipoLogradouro" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoLogradouro>()" class="form-select" id="tipoLogradouro" required> </select>
+                   <select asp-for="Endereco.TipoLogradouro" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoLogradouro>()" class="form-select" id="tipoLogradouro" required> 
+                    <option></option>
+                    <option value="1" selected>Rua</option>                                
+                    <option value="2">Avenida</option>
+                    <option value="3">Rodovia</option>
+                    <option value="4">Estrada</option>
+                    <option value="5">Viela</option>
+                    <option value="6">Travessa</option>
+                   </select>
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -226,7 +242,16 @@
 
                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Tipo de Residência</span>
-                   <select asp-for="Endereco.TipoResidencia" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoResidencia>()" class="form-select" id="tipoResidencia" required> </select>
+                   <select asp-for="Endereco.TipoResidencia" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoResidencia>()" class="form-select" id="tipoResidencia" required> 
+                    <option></option>
+                    <option value="1" selected>Casa</option>                                
+                    <option value="2">Sobrado</option>
+                    <option value="3">Apartamento</option>
+                    <option value="4">Chácara</option>
+                    <option value="5">Escritório</option>
+                    <option value="6">República</option>
+                    <option value="7">Quitinete</option>
+                   </select>
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -235,14 +260,14 @@
                <div class="col-lg-7 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Logradouro</span>
                    <input asp-for="Endereco.Logradouro" class="form-control" id="logradouro"
-                          placeholder="Digite o logradouro" required>
+                          placeholder="Digite o logradouro" required value="Rua Expedito D. Nogueira">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
                </div>
                <div class="col-lg-1 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Número</span>
-                   <input asp-for="Endereco.Numero" class="form-control" id="numero" placeholder="N°" required>
+                   <input asp-for="Endereco.Numero" class="form-control" id="numero" placeholder="N°" required value="9999">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -255,7 +280,7 @@
 
                <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Bairro</span>
-                   <input asp-for="Endereco.Bairro" class="form-control" id="bairro" placeholder="Digite o bairro" required>
+                   <input asp-for="Endereco.Bairro" class="form-control" id="bairro" placeholder="Digite o bairro" required value="Miguel Badra">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -263,7 +288,7 @@
 
                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Cidade</span>
-                   <input asp-for="Endereco.Cidade.Descricao" class="form-control" id="cidade" placeholder="Digite a cidade" required>
+                   <input asp-for="Endereco.Cidade.Descricao" class="form-control" id="cidade" placeholder="Digite a cidade" required value="Suzano">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -271,7 +296,7 @@
 
                <div class="col-lg-1 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Estado</span>
-                   <input asp-for="Endereco.Cidade.Estado.Descricao" class="form-control" id="estado" placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()">
+                   <input asp-for="Endereco.Cidade.Estado.Descricao" class="form-control" id="estado" placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()" value="SP">
                    <div class="invalid-feedback">
                        *Campo obrigatório (Sigla)
                    </div>
@@ -279,7 +304,7 @@
 
                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>País</span>
-                   <input asp-for="Endereco.Cidade.Estado.Pais.Descricao" class="form-control" id="pais" placeholder="Digite o país" required>
+                   <input asp-for="Endereco.Cidade.Estado.Pais.Descricao" class="form-control" id="pais" placeholder="Digite o país" required value="Brasil">
                    <div class="invalid-feedback">
                        *Campo obrigatório
                    </div>
@@ -287,7 +312,7 @@
 
                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                    <span>Cep</span>
-                   <input asp-for="Endereco.Cep" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" required>
+                   <input asp-for="Endereco.Cep" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" required value="08690-020">
                    <div class="invalid-feedback">
                        *Campo obrigatório (Somente números)
                    </div>
@@ -311,7 +336,7 @@
        </div>
        <br>
        <div>
-        <button type"submit" class="btn btn-warning col-lg-12">Alterar Perfil</button>
+        <button type"submit" class="btn btn-warning col-lg-12" onsubmit="chamarAlertAlteracao()">Alterar Perfil</button>
     </div>
 
    <br><br><br>
@@ -411,22 +436,6 @@
   </footer><!-- End Footer -->
 
   
-<a href="https://api.whatsapp.com/send?phone=5511989462969&text=Dúvidas" target="_blank"
-style="position:fixed;bottom:20px;right:18px;">
- <svg enable-background="new 0 0 512 512" width="50" height="50" version="1.1" viewBox="0 0 512 512"
-      xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
- <path d="M256.064,0h-0.128l0,0C114.784,0,0,114.816,0,256c0,56,18.048,107.904,48.736,150.048l-31.904,95.104  l98.4-31.456C155.712,496.512,204,512,256.064,512C397.216,512,512,397.152,512,256S397.216,0,256.064,0z"
-       fill="#4CAF50" />
-
-
-
- <path d="m405.02 361.5c-6.176 17.44-30.688 31.904-50.24 36.128-13.376 2.848-30.848 5.12-89.664-19.264-75.232-31.168-123.68-107.62-127.46-112.58-3.616-4.96-30.4-40.48-30.4-77.216s18.656-54.624 26.176-62.304c6.176-6.304 16.384-9.184 26.176-9.184 3.168 0 6.016 0.16 8.576 0.288 7.52 0.32 11.296 0.768 16.256 12.64 6.176 14.88 21.216 51.616 23.008 55.392 1.824 3.776 3.648 8.896 1.088 13.856-2.4 5.12-4.512 7.392-8.288 11.744s-7.36 7.68-11.136 12.352c-3.456 4.064-7.36 8.416-3.008 15.936 4.352 7.36 19.392 31.904 41.536 51.616 28.576 25.44 51.744 33.568 60.032 37.024 6.176 2.56 13.536 1.952 18.048-2.848 5.728-6.176 12.8-16.416 20-26.496 5.12-7.232 11.584-8.128 18.368-5.568 6.912 2.4 43.488 20.48 51.008 24.224 7.52 3.776 12.48 5.568 14.304 8.736 1.792 3.168 1.792 18.048-4.384 35.52z"
-       fill="#FAFAFA" />
-
-
-
- </svg>
-</a>
 
 <script>
 (function () {

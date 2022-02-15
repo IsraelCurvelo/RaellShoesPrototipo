@@ -62,7 +62,7 @@
           <li><a class="nav-link scrollto" href="">Carrinho</a></li>           
           <li class="dropdown  active"><a href="#"><span>Meu Perfil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-              <li><a href="#">Meu Perfil</a></li> 
+              <li><a href="meuperfil.html">Meu Perfil</a></li> 
               <li><a href="#">Meus Endereços</a></li>
               <li><a href="#">Meus Cartões</a></li>  
               <li><a href="#">Meus Pedidos</a></li>
@@ -101,7 +101,7 @@
                 <strong style="padding-left: 10px; color: rgb(202, 64, 64)"> Cadastrar Endereço </strong>
             </h4><br>
             <div>
-                <a asp-action="cadastrarendereco"> <input type="button" class="btn btn-success col-lg-12" style="border-radius:10px" value="Novo"></a>
+                <a href="cadastrar-endereco.html"> <input type="button" class="btn btn-success col-lg-12" style="border-radius:10px" value="Novo"></a>
             </div>
         </div>
         <br>
@@ -109,13 +109,17 @@
         @foreach(var item in Model)
          {-->
             <div class="info-wrap" style="border-radius:20px;font-size: small" id="">
-                <form asp-action="alterarendereco" class="needs-validation" novalidate>
+                <form action="meus-enderecos.html" class="needs-validation" novalidate>
                     <div class="row">
                         <input type="hidden" asp-for="@item.Id" name="Id" />
 
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Tipo de Endereço</span>
-                            <select asp-for="@item.TipoEndereco" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoEndereco>()" name="TipoEndereco" class="form-select" required style="font-size: small"> </select>
+                            <select asp-for="@item.TipoEndereco" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoEndereco>()" name="TipoEndereco" class="form-select" required style="font-size: small">
+                              <option ></option>
+                              <option value="1" selected>Entrega</option>
+                              <option value="2">Cobrança</option> 
+                            </select>
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -123,7 +127,7 @@
                         <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Nome do endereço</span>
                             <input asp-for="@item.Apelido" type="text" name="Apelido" class="form-control" id="fraseendereco"
-                                   style="font-size: small" placeholder="Dê um nome para este endereço" required>
+                                   style="font-size: small" placeholder="Dê um nome para este endereço" required value="Casa Mãe">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -132,7 +136,7 @@
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Cep</span>
                             <input asp-for="@item.Cep" name="cep" type="text" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}"
-                                   style="font-size: small" required>
+                                   style="font-size: small" required value="08710-025">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -147,7 +151,16 @@
 
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Tipo de Residência</span>
-                            <select asp-for="@item.TipoResidencia" name="TipoResidencia" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoResidencia>()" class="form-select" id="tipoResidencia" required style="font-size: small"> </select>
+                            <select asp-for="@item.TipoResidencia" name="TipoResidencia" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoResidencia>()" class="form-select" id="tipoResidencia" required style="font-size: small"> 
+                              <option></option>
+                              <option value="1">Casa</option>                                
+                              <option value="2"selected>Sobrado</option>
+                              <option value="3">Apartamento</option>
+                              <option value="4">Chácara</option>
+                              <option value="5">Escritório</option>
+                              <option value="6">República</option>
+                              <option value="7">Quitinete</option>
+                            </select>
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -156,6 +169,13 @@
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Tipo de Logradouro</span>
                             <select asp-for="@item.TipoLogradouro" name="TipoLogradouro" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoLogradouro>()" class="form-select" id="tipoLogradouro" required style="font-size: small">
+                              <option></option>
+                              <option value="1" selected>Rua</option>                                
+                              <option value="2">Avenida</option>
+                              <option value="3">Rodovia</option>
+                              <option value="4">Estrada</option>
+                              <option value="5">Viela</option>
+                              <option value="6">Travessa</option>
                             </select>
                             <div class="invalid-feedback">
                                 *Campo obrigatório
@@ -167,14 +187,14 @@
                         <div class="col-lg-5 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Logradouro</span>
                             <input asp-for="@item.Logradouro" name="Logradouro" type="text" class="form-control" id="logradouro" style="font-size: small"
-                                   placeholder="Digite o logradouro" required>
+                                   placeholder="Digite o logradouro" required value="Rua Coronel Souza Franco">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
                         </div>
                         <div class="col-lg-1 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Número</span>
-                            <input asp-for="@item.Numero" name="Numero" type="text" class="form-control" id="numero" placeholder="N°" required style="font-size: small">
+                            <input asp-for="@item.Numero" name="Numero" type="text" class="form-control" id="numero" placeholder="N°" required style="font-size: small" value="88">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -182,13 +202,13 @@
                         <div class="col-lg-2 col-md-3 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Complemento</span>
                             <input asp-for="@item.Complemento" name="Complemento" type="text" class="form-control" id="complemento" style="font-size: small"
-                                   placeholder="Caso houver, digite o complemento">
+                                   placeholder="Caso houver, digite o complemento" >
                         </div>
 
                         <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Bairro</span>
                             <input asp-for="@item.Bairro" name="Bairro" type="text" class="form-control" id="bairro" style="font-size: small"
-                                   placeholder="Digite o bairro" required>
+                                   placeholder="Digite o bairro" required value="Centro">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -198,7 +218,7 @@
                             <input type="hidden" asp-for="@item.Cidade.Id" name="Cidade.Id" />
                             <span>Cidade</span>
                             <input asp-for="@item.Cidade.Descricao" type="text" name="Cidade.Descricao" class="form-control" id="cidade" style="font-size: small"
-                                   placeholder="Digite a cidade" required>
+                                   placeholder="Digite a cidade" required value="Mogi das Cruzes">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -208,7 +228,7 @@
                             <input type="hidden" asp-for="@item.Cidade.Estado.Id" name="Cidade.Estado.Id" />
                             <span>Estado</span>
                             <input asp-for="@item.Cidade.Estado.Descricao" type="text" name="Cidade.Estado.Descricao" class="form-control" id="estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()" style="font-size: small"
-                                   placeholder="Digite o estado">
+                                   placeholder="Digite o estado" value="SP">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -218,7 +238,7 @@
                             <input type="hidden" asp-for="@item.Cidade.Estado.Pais.Id" name="Cidade.Estado.Pais.Id" />
                             <span>País</span>
                             <input asp-for="@item.Cidade.Estado.Pais.Descricao" type="text" name="Cidade.Estado.Pais.Descricao" class="form-control" id="pais" placeholder="Digite o país" style="font-size: small"
-                                   value="Brasil" required>
+                                   value="Brasil" required value="Brasil">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -229,7 +249,7 @@
                         <div class="col-lg-12 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Observações</span>
                             <textarea asp-for="@item.Observacoes" type="text" name="Observacoes" class="form-control" id="observacoes" style="font-size: small"
-                                      placeholder="Tem alguma observação?" data-rule="minlen:3" rows="3"></textarea>
+                                      placeholder="Tem alguma observação?" data-rule="minlen:3" rows="3" ></textarea>
                         </div>
 
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
@@ -241,7 +261,7 @@
                         <div>
                             <button class="btn btn-warning btn-sm" style="border-radius:8px; width: 49%; margin-right:1.5%" type="submit">Alterar</button>
                             <form>
-                                <a asp-action="ExcluirEndereco" asp-route-id="@item.Id" type="submit" class="btn btn-danger btn-sm" style="border-radius:8px; width: 49%; ">Excluir</a>
+                                <a action="meus-enderecos.html" asp-route-id="@item.Id" type="submit" class="btn btn-danger btn-sm" style="border-radius:8px; width: 49%; " onclick="excluirEndereco()">Excluir</a>
                             </form>
 
 
@@ -253,6 +273,170 @@
             <br>
        <!-- .net}--> 
        
+       <!--Segundo card para o prototipo-->
+       <div class="info-wrap" style="border-radius:20px;font-size: small" id="">
+        <form action="meus-enderecos.html" class="needs-validation" novalidate>
+            <div class="row">
+                <input type="hidden" asp-for="@item.Id" name="Id" />
+
+                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Tipo de Endereço</span>
+                    <select asp-for="@item.TipoEndereco" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoEndereco>()" name="TipoEndereco" class="form-select" required style="font-size: small">
+                      <option ></option>
+                      <option value="1">Entrega</option>
+                      <option value="2" selected>Cobrança</option> 
+                    </select>
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Nome do endereço</span>
+                    <input asp-for="@item.Apelido" type="text" name="Apelido" class="form-control" id="fraseendereco"
+                           style="font-size: small" placeholder="Dê um nome para este endereço" required value="Escritório Empresa">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Cep</span>
+                    <input asp-for="@item.Cep" name="cep" type="text" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}"
+                           style="font-size: small" required value="08710-025">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+                <div class="col-lg-1 col-md-1 form-group mt-3 mt-md-0" id="comb-form">
+                    <input type="button" class="btn btn-outline-info btn-sm" id="detalhes-endereco" style="margin-top: 20px; border-radius: 10px " value="Ver detalhes" onclick="mostrarDetalhes(2)">
+                </div>
+
+            </div>
+            <div class="row" id="2" hidden>
+
+                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Tipo de Residência</span>
+                    <select asp-for="@item.TipoResidencia" name="TipoResidencia" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoResidencia>()" class="form-select" id="tipoResidencia" required style="font-size: small"> 
+                      <option></option>
+                      <option value="1">Casa</option>                                
+                      <option value="2">Sobrado</option>
+                      <option value="3">Apartamento</option>
+                      <option value="4">Chácara</option>
+                      <option value="5" selected>Escritório</option>
+                      <option value="6">República</option>
+                      <option value="7">Quitinete</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Tipo de Logradouro</span>
+                    <select asp-for="@item.TipoLogradouro" name="TipoLogradouro" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoLogradouro>()" class="form-select" id="tipoLogradouro" required style="font-size: small">
+                      <option></option>
+                      <option value="1" >Rua</option>                                
+                      <option value="2" selected>Avenida</option>
+                      <option value="3">Rodovia</option>
+                      <option value="4">Estrada</option>
+                      <option value="5">Viela</option>
+                      <option value="6">Travessa</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-5 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Logradouro</span>
+                    <input asp-for="@item.Logradouro" name="Logradouro" type="text" class="form-control" id="logradouro" style="font-size: small"
+                           placeholder="Digite o logradouro" required value="Rua Coronel Souza Franco">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Número</span>
+                    <input asp-for="@item.Numero" name="Numero" type="text" class="form-control" id="numero" placeholder="N°" required style="font-size: small" value="336">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Complemento</span>
+                    <input asp-for="@item.Complemento" name="Complemento" type="text" class="form-control" id="complemento" style="font-size: small"
+                           placeholder="Caso houver, digite o complemento" value="19º Andar Sala 19" >
+                </div>
+
+                <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Bairro</span>
+                    <input asp-for="@item.Bairro" name="Bairro" type="text" class="form-control" id="bairro" style="font-size: small"
+                           placeholder="Digite o bairro" required value="Centro">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <input type="hidden" asp-for="@item.Cidade.Id" name="Cidade.Id" />
+                    <span>Cidade</span>
+                    <input asp-for="@item.Cidade.Descricao" type="text" name="Cidade.Descricao" class="form-control" id="cidade" style="font-size: small"
+                           placeholder="Digite a cidade" required value="Mogi das Cruzes">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <input type="hidden" asp-for="@item.Cidade.Estado.Id" name="Cidade.Estado.Id" />
+                    <span>Estado</span>
+                    <input asp-for="@item.Cidade.Estado.Descricao" type="text" name="Cidade.Estado.Descricao" class="form-control" id="estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()" style="font-size: small"
+                           placeholder="Digite o estado" value="SP">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <input type="hidden" asp-for="@item.Cidade.Estado.Pais.Id" name="Cidade.Estado.Pais.Id" />
+                    <span>País</span>
+                    <input asp-for="@item.Cidade.Estado.Pais.Descricao" type="text" name="Cidade.Estado.Pais.Descricao" class="form-control" id="pais" placeholder="Digite o país" style="font-size: small"
+                           value="Brasil" required value="Brasil">
+                    <div class="invalid-feedback">
+                        *Campo obrigatório
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-12 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Observações</span>
+                    <textarea asp-for="@item.Observacoes" type="text" name="Observacoes" class="form-control" id="observacoes" style="font-size: small"
+                              placeholder="Tem alguma observação?" data-rule="minlen:3" rows="3" ></textarea>
+                </div>
+
+                <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                    <input type="hidden" asp-for="@item.ClienteId" name="ClienteId" />                                
+                </div>
+
+                <br>
+
+                <div>
+                    <button class="btn btn-warning btn-sm" style="border-radius:8px; width: 49%; margin-right:1.5%" type="submit">Alterar</button>
+                    <form>
+                        <a action="meus-enderecos.html" asp-route-id="@item.Id" type="submit" class="btn btn-danger btn-sm" style="border-radius:8px; width: 49%; " onclick="excluirEndereco()">Excluir</a>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <br>
             </br>               
 
         </div>
@@ -334,12 +518,8 @@ style="position:fixed;bottom:20px;right:18px;">
  <path d="M256.064,0h-0.128l0,0C114.784,0,0,114.816,0,256c0,56,18.048,107.904,48.736,150.048l-31.904,95.104  l98.4-31.456C155.712,496.512,204,512,256.064,512C397.216,512,512,397.152,512,256S397.216,0,256.064,0z"
        fill="#4CAF50" />
 
-
-
  <path d="m405.02 361.5c-6.176 17.44-30.688 31.904-50.24 36.128-13.376 2.848-30.848 5.12-89.664-19.264-75.232-31.168-123.68-107.62-127.46-112.58-3.616-4.96-30.4-40.48-30.4-77.216s18.656-54.624 26.176-62.304c6.176-6.304 16.384-9.184 26.176-9.184 3.168 0 6.016 0.16 8.576 0.288 7.52 0.32 11.296 0.768 16.256 12.64 6.176 14.88 21.216 51.616 23.008 55.392 1.824 3.776 3.648 8.896 1.088 13.856-2.4 5.12-4.512 7.392-8.288 11.744s-7.36 7.68-11.136 12.352c-3.456 4.064-7.36 8.416-3.008 15.936 4.352 7.36 19.392 31.904 41.536 51.616 28.576 25.44 51.744 33.568 60.032 37.024 6.176 2.56 13.536 1.952 18.048-2.848 5.728-6.176 12.8-16.416 20-26.496 5.12-7.232 11.584-8.128 18.368-5.568 6.912 2.4 43.488 20.48 51.008 24.224 7.52 3.776 12.48 5.568 14.304 8.736 1.792 3.168 1.792 18.048-4.384 35.52z"
        fill="#FAFAFA" />
-
-
 
  </svg>
 </a>
@@ -367,6 +547,7 @@ style="position:fixed;bottom:20px;right:18px;">
 <script>
 
     function excluirEndereco() {
+      return confirm("Deseja excluir este endereço?")
         Swal.fire({
             title: 'Você tem certeza?',
             icon: 'warning',
@@ -389,6 +570,29 @@ style="position:fixed;bottom:20px;right:18px;">
             }
         })
     }
+</script>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
 </script>
 
 </body>
