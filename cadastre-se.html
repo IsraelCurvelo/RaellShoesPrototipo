@@ -49,7 +49,7 @@
 
     <!--Form-->
     <div class="container mt-5">
-        <form asp-action="CadastrarCliente" method="post" id="form-cliente" class="needs-validation" novalidate>
+        <form action="login.html" method="post" id="form-cliente" class="needs-validation" novalidate>
 
             <!--Box Dados Pessoais-->
             <div class="info-wrap">
@@ -97,7 +97,7 @@
                             <span>Gênero</span>
                             <br>
                             <select  asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()" class="form-select" required>
-                                <option  value="0"></option>
+                                <option ></option>
                                 <option value="1">Masculino</option>
                                 <option value="2">Feminino</option>
                             </select>   
@@ -122,7 +122,7 @@
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Tipo</span>
                         <select asp-for="Telefone.TipoTelefone" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoTelefone>()" class="form-select" required>
-                            <option value="0"></option>
+                            <option ></option>
                             <option value="1">Telefone</option>
                             <option value="2">Celular</option> 
                         </select>                        
@@ -181,7 +181,15 @@
 
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Tipo de Logradouro</span>
-                            <select asp-for="Endereco.TipoLogradouro" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoLogradouro>()" class="form-select" id="tipoLogradouro" required> </select>
+                            <select asp-for="Endereco.TipoLogradouro" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoLogradouro>()" class="form-select" id="tipoLogradouro" required> 
+                                <option></option>
+                                <option value="1">Rua</option>                                
+                                <option value="2">Avenida</option>
+                                <option value="3">Rodovia</option>
+                                <option value="4">Estrada</option>
+                                <option value="5">Viela</option>
+                                <option value="6">Travessa</option>
+                            </select>
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -189,7 +197,16 @@
 
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Tipo de Residência</span>
-                            <select asp-for="Endereco.TipoResidencia" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoResidencia>()" class="form-select" id="tipoResidencia" required> </select>
+                            <select asp-for="Endereco.TipoResidencia" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.TipoResidencia>()" class="form-select" id="tipoResidencia" required> 
+                                <option></option>
+                                <option value="1">Casa</option>                                
+                                <option value="2">Sobrado</option>
+                                <option value="3">Apartamento</option>
+                                <option value="4">Chácara</option>
+                                <option value="5">Escritório</option>
+                                <option value="6">República</option>
+                                <option value="7">Quitinete</option>
+                            </select>
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -548,7 +565,24 @@
 
 </section>
 
-
+<script>
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+  
+      Array.prototype.slice.call(forms)
+              .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+  
+                  form.classList.add('was-validated')
+                }, false)
+              })
+    })()
+  </script>
 
 <script>
     function maiusculo() {

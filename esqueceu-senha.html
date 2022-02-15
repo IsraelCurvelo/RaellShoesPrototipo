@@ -46,7 +46,7 @@
     <div class="container mt-5">
         <!--SEM FORM POR SER PROTOTIPO E ROTEAR PARA CADASTRO-->
         <!-- <form class="emailnovo">-->
-        <form asp-action="EsqueceuSenha" class="needs-validation" novalidate>
+        <form action="login.html" class="needs-validation" novalidate>
             <!--Box Email Login-->
             <div class="info-wrap  " style="align-items: center; margin-left: 25%; height: 100%;width: 50%;margin-top: auto;margin-bottom: auto;">
                 <h4> <strong style="padding-left: 10px; color: black;"> Reenviar Senha</strong></h4><br>
@@ -88,7 +88,24 @@
 
 </section>
 
-    
+<script>
+  (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+
+    Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+  })()
+</script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter.js"></script>
