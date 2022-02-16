@@ -41,31 +41,31 @@
  
  
   <section id="cliente" class="cliente">
-
+        
     <!--Form-->
     <div class="container mt-5">
         <!--SEM FORM POR SER PROTOTIPO E ROTEAR PARA CADASTRO-->
-        <!-- <form class="emailnovo">-->
-        <form action="login.html" class="needs-validation" novalidate>
-            <!--Box Email Login-->
+      <!-- <form class="emailnovo">-->
+      <form action="login.html" class="needs-validation" novalidate>
+           <!--Box Email Login-->
             <div class="info-wrap  " style="align-items: center; margin-left: 25%; height: 100%;width: 50%;margin-top: auto;margin-bottom: auto;">
-                <h4> <strong style="padding-left: 10px; color: black;"> Reenviar Senha</strong></h4><br>
+                <h4> <strong style="padding-left: 10px; color: black;"> Reenviar Senha</strong></h4><br>             
                 <div class="row">
                     <div class="col-lg-5 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Email</span>
-                        <input asp-for="Usuario.Email" type="email" class="form-control" id="emailuser" aria-describedby="emailHelp"
-                               placeholder="Digite seu email" required>
-                        <div class="invalid-feedback">
-                            Este campo é obrigatório
-                        </div>
-                        <br>
-                    </div>
-
-
+                        <input type="email" class="form-control" id="emailuser" aria-describedby="emailHelp"
+                            placeholder="Digite seu email"  required >
+                            <div class="invalid-feedback">
+                                Este campo é obrigatório
+                            </div>
+                   <br>  
+                </div>                  
+                
+                
                     <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>DDD</span>
-                        <input asp-for="Telefone.DDD" type="text" class="form-control" name="ddd" id="ddd" placeholder="Digite seu DDD"
-                               required>
+                        <input type="text" class="form-control" name="ddd" id="ddd" placeholder="Digite seu DDD"
+                        required maxlength="3" minlength="2">
                         <div class="invalid-feedback">
                             Este campo é obrigatório
                         </div>
@@ -73,18 +73,22 @@
 
                     <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Telefone</span>
-                        <input asp-for="Telefone.Numero" type="text" class="form-control" name="ddd" id="ddd" placeholder="Digite seu Telefone"
-                               required>
+                        <input type="text" class="form-control" name="ddd" id="ddd" placeholder="Digite seu Telefone"maxlength="10"
+                        onkeypress="formatar('#####-####', this);" pattern="[0-9]{4}-[0-9]{5}||[0-9]{5}-[0-9]{4}"
+                        required >
                         <div class="invalid-feedback">
                             Este campo é obrigatório
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark col-lg-12 ">Reenviar senha</button>
+                    
+               
+                
+                <button type="submit"class="btn btn-dark col-lg-12 ">Reenviar senha</button>   </a>                     
 
-                </div>
+            </div>
         </form><!--</form>-->
         <br>
-    </div>
+     </div>
 
 </section>
 
@@ -105,6 +109,17 @@
               }, false)
             })
   })()
+</script>
+
+<script>
+  function formatar(mascara, documento) {
+      var i = documento.value.length;
+      var saida = mascara.substring(0, 1);
+      var texto = mascara.substring(i)
+      if (texto.substring(0, 1) !== saida) {
+          documento.value += texto.substring(0, 1);
+      }
+  }
 </script>
 
   <!-- Vendor JS Files -->

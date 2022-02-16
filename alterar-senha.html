@@ -39,58 +39,64 @@
   </header><!-- End Header --> 
 
  
- 
+
+
   <section id="cliente" class="cliente">
-        
+    <div class="container" style="padding-top: 40px; margin-bottom: -30px;">
+      <div class="section-title2">
+          <h2> <span style="color: rgb(8, 155, 155)">Senha </span></h2>
+      </div>
+  </div>
     <!--Form-->
     <div class="container mt-5">
         <!--SEM FORM POR SER PROTOTIPO E ROTEAR PARA CADASTRO-->
       <!-- <form class="emailnovo">-->
-<form action="index-logado.html" class="needs-validation" novalidate>
-           <!--Box Email Login-->
-            <div class="info-wrap  " style="align-items: center; margin-left: 25%; height: 100%;width: 50%;margin-top: auto;margin-bottom: auto;">
-                <h4> <strong style="padding-left: 10px; color: black;"> Reenviar Senha</strong></h4><br>             
-                <div class="row">
-                    <div class="col-lg-5 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Email</span>
-                        <input type="email" class="form-control" id="emailuser" aria-describedby="emailHelp"
-                            placeholder="Digite seu email"  required >
-                            <div class="invalid-feedback">
-                                Este campo é obrigatório
-                            </div>
-                   <br>  
-                </div>                  
-                
-                
-                    <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>DDD</span>
-                        <input type="text" class="form-control" name="ddd" id="ddd" placeholder="Digite seu DDD"
-                        required maxlength="3" minlength="2">
-                        <div class="invalid-feedback">
-                            Este campo é obrigatório
+      <form action="index-logado.html" class="needs-validation" novalidate>
+        <div class="info-wrap">
+          <div class="col-lg-3 col-md-6 info">
+              <i class="bi bi-person-badge" style="margin-top: -8px; background-color: rgb(158, 252, 220); color: rgb(8, 155, 155)"></i>
+          </div>
+          <h4> <strong style="padding-left: 10px; color: rgb(8, 155, 155)"> Alterar Senha</strong></h4><br>
+          <div>                        
+          </div>
+          <div class="row">
+              
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                          <span>Senha Atual</span>                                    
+                          <input class="form-control" id="senha-atual" type="password"  placeholder="Digite sua senha atual" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@@#]{8,}" required>
+                          <div class="invalid-feedback">
+                            A senha deve conter ao menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um digito.
                         </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Telefone</span>
-                        <input type="text" class="form-control" name="ddd" id="ddd" placeholder="Digite seu Telefone"maxlength="10"
-                        onkeypress="formatar('#####-####', this);" pattern="[0-9]{4}-[0-9]{5}||[0-9]{5}-[0-9]{4}"
-                        required >
-                        <div class="invalid-feedback">
-                            Este campo é obrigatório
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                          <span>Nova Senha</span>                                    
+                          <input class="form-control" id="nova-senha" type="password"  placeholder="Digite a nova senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@@#]{8,}" required>
+                          <div class="invalid-feedback">
+                            A senha deve conter ao menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um digito.
                         </div>
-                    </div>
-                    
-               
-                
-                <button type="submit"class="btn btn-dark col-lg-12 ">Reenviar senha</button>   </a>                     
-
-            </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                          <span>Confirmação Senha</span>                                    
+                          <input class="form-control" id="confirmacao-senha" type="password"  placeholder="Confirme sua senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@@#]{8,}" required>
+                          <div class="invalid-feedback">
+                            A senha deve conter ao menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um digito.
+                        </div>
+                      </div>
+                   </div>
+                   
+          </div>
+          <br>
+          <button type="submit"class="btn btn-warning col-lg-12 ">Alterar senha</button> 
+      </div>           
         </form><!--</form>-->
         <br>
      </div>
 
 </section>
+  
 
 <script>
   (function () {
@@ -111,16 +117,32 @@
   })()
 </script>
 
-<script>
-  function formatar(mascara, documento) {
-      var i = documento.value.length;
-      var saida = mascara.substring(0, 1);
-      var texto = mascara.substring(i)
-      if (texto.substring(0, 1) !== saida) {
-          documento.value += texto.substring(0, 1);
-      }
-  }
-</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function executar(){      
+      Swal.fire('Senha alterada com Sucesso!');
+    }   
+  </script>
+  <script src="sweetalert2.all.min.js"></script>
+
+  <script>
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+  
+      Array.prototype.slice.call(forms)
+              .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+  
+                  form.classList.add('was-validated')
+                }, false)
+              })
+    })()
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter.js"></script>
