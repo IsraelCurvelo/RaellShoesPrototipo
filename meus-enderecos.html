@@ -550,7 +550,7 @@
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Estado</span>
                         <input type="text" name="estado" class="form-control" id="estado"
-                            placeholder="Digite o estado" required>
+                            placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -566,7 +566,7 @@
 
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Cep</span>
-                        <input type="text" name="cep" class="form-control" id="cep" placeholder="Digite o cep" required>                                
+                        <input type="text" name="cep" class="form-control" id="cep" placeholder="Digite o cep" required maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" >                                
                         <div class="invalid-feedback">
                             *Campo obrigatório
                         </div>
@@ -753,7 +753,16 @@ style="position:fixed;bottom:20px;right:18px;">
     })
 })()
 </script>
-
+<script>
+  function formatar(mascara, documento) {
+      var i = documento.value.length;
+      var saida = mascara.substring(0, 1);
+      var texto = mascara.substring(i)
+      if (texto.substring(0, 1) !== saida) {
+          documento.value += texto.substring(0, 1);
+      }
+  }
+</script>
 </body>
 
 </html>
