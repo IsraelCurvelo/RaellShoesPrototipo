@@ -59,7 +59,7 @@
           <li><a class="nav-link scrollto" href="sobre-nos.html">Sobre Nós</a></li>
           <li><a class="nav-link scrollto" href="contato.html">Contato</a></li>
           <li><a class="nav-link scrollto" href="perguntas-frequentes.html">Perguntas Frequentes</a></li>
-          <li><a class="nav-link scrollto" href="">Carrinho</a></li>           
+          <li><a class="nav-link scrollto" href="carrinho.html">Carrinho</a></li>           
           <li class="dropdown  active"><a href="#"><span>Meu Perfil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
               <li><a href="meuperfil.html">Meu Perfil</a></li> 
@@ -471,7 +471,16 @@
                 <h4> <strong style="padding-left: 10px; color: rgb(202, 64, 64)"> Digite os dados</strong></h4><br>
 
 
-                <div class="row">
+                <div class="row">                   
+                    <div class="col-lg-8 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                        <span>Nome do endereço</span>
+                        <input type="text" name="fraseendereco" class="form-control" id="fraseendereco" placeholder="Dê um nome para este endereço"
+                            required>    
+                            <div class="invalid-feedback">
+                                *Campo obrigatório
+                            </div>                        
+                    </div>
+
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Tipo de Endereço</span>
                         <select id="disabledSelect" class="form-select" required>
@@ -482,14 +491,6 @@
                         <div class="invalid-feedback">
                             *Campo obrigatório
                         </div>
-                    </div>
-                    <div class="col-lg-10 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Nome do endereço</span>
-                        <input type="text" name="fraseendereco" class="form-control" id="fraseendereco" placeholder="Dê um nome para este endereço"
-                            required>    
-                            <div class="invalid-feedback">
-                                *Campo obrigatório
-                            </div>                        
                     </div>
 
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
@@ -507,11 +508,17 @@
                             *Campo obrigatório
                         </div>                       
                     </div>
-
+                    <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                        <span>Cep</span>
+                        <input type="text" name="cep" class="form-control" id="cep" placeholder="Digite o cep" required maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" onblur="pesquisacep(this.value)">                                
+                        <div class="invalid-feedback">
+                            *Campo obrigatório
+                        </div>
+                    </div>
                     <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Logradouro</span>
-                        <input type="text" name="logradouro" class="form-control" id="logradouro"
-                            placeholder="Digite o logradouro" required>   
+                        <span>Logradouro</span><i class="bi bi-lock"></i>
+                        <input type="text" name="logradouro" class="form-control" id="logradouro-modal"
+                            placeholder="Digite o logradouro" required disabled>   
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>                        
@@ -530,27 +537,27 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Bairro</span>
-                        <input type="text" name="bairro" class="form-control" id="bairro"
-                            placeholder="Digite o bairro" required>
+                        <span>Bairro</span><i class="bi bi-lock"></i>
+                        <input type="text" name="bairro" class="form-control" id="bairro-modal"
+                            placeholder="Digite o bairro" required disabled>
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Cidade</span>
-                        <input type="text" name="cidade" class="form-control" id="cidade"
-                            placeholder="Digite a cidade" required>
+                        <span>Cidade</span><i class="bi bi-lock"></i>
+                        <input type="text" name="cidade" class="form-control" id="cidade-modal"
+                            placeholder="Digite a cidade" required disabled>
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
                     </div>
 
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Estado</span>
-                        <input type="text" name="estado" class="form-control" id="estado"
-                            placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()">
+                        <span>Estado</span><i class="bi bi-lock"></i>
+                        <input type="text" name="estado" class="form-control" id="estado-modal"
+                            placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2" required disabled onChange="maiusculo()">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -558,19 +565,13 @@
 
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>País</span>
-                        <input type="text" name="pais" class="form-control" id="pais" placeholder="Digite o país"required>
+                        <input type="text" name="pais" class="form-control" id="pais-modal" placeholder="Digite o país"required>
                         <div class="invalid-feedback">
                             *Campo obrigatório
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Cep</span>
-                        <input type="text" name="cep" class="form-control" id="cep" placeholder="Digite o cep" required maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" >                                
-                        <div class="invalid-feedback">
-                            *Campo obrigatório
-                        </div>
-                    </div>
+                    
 
                     <div class="col-lg-12 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Observações</span>
@@ -684,7 +685,7 @@ style="position:fixed;bottom:20px;right:18px;">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
-    function mostrarDetalhes(id) {
+    function mostrarDetalhes(id){
 
         debugger;
 
@@ -763,6 +764,80 @@ style="position:fixed;bottom:20px;right:18px;">
       }
   }
 </script>
+
+<script>
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('logradouro-modal').value=("");
+            document.getElementById('bairro-modal').value=("");
+            document.getElementById('cidade-modal').value=("");
+            document.getElementById('estado-modal').value=("");
+       
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.           
+            document.getElementById('logradouro-modal').value=(conteudo.logradouro);
+            document.getElementById('bairro-modal').value=(conteudo.bairro);
+            document.getElementById('cidade-modal').value=(conteudo.localidade);
+            document.getElementById('estado-modal').value=(conteudo.uf);
+            
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+debugger;
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.                
+                document.getElementById('logradouro-modal').value="...";
+                document.getElementById('bairro-modal').value="...";
+                document.getElementById('cidade-modal').value="...";
+                document.getElementById('estado-modal').value="...";
+               
+              
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
+
 </body>
 
 </html>
