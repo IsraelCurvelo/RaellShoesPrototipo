@@ -136,8 +136,8 @@
 
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Cep</span>
-                            <input asp-for="@item.Cep" name="cep" type="text" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}"
-                                   style="font-size: small" required value="08710-025">
+                            <input asp-for="@item.Cep" name="cep" type="text" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" 
+                              style="font-size: small" required value="08710-025">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
@@ -187,7 +187,7 @@
 
                         <div class="col-lg-5 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Logradouro</span>
-                            <input asp-for="@item.Logradouro" name="Logradouro" type="text" class="form-control" id="logradouro" style="font-size: small"
+                            <input asp-for="@item.Logradouro" name="Logradouro" type="text" class="form-control" id="logradouro1" style="font-size: small"
                                    placeholder="Digite o logradouro" required value="Rua Coronel Souza Franco">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
@@ -208,7 +208,7 @@
 
                         <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <span>Bairro</span>
-                            <input asp-for="@item.Bairro" name="Bairro" type="text" class="form-control" id="bairro" style="font-size: small"
+                            <input asp-for="@item.Bairro" name="Bairro" type="text" class="form-control" id="bairro1" style="font-size: small"
                                    placeholder="Digite o bairro" required value="Centro">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
@@ -218,7 +218,7 @@
                         <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <input type="hidden" asp-for="@item.Cidade.Id" name="Cidade.Id" />
                             <span>Cidade</span>
-                            <input asp-for="@item.Cidade.Descricao" type="text" name="Cidade.Descricao" class="form-control" id="cidade" style="font-size: small"
+                            <input asp-for="@item.Cidade.Descricao" type="text" name="Cidade.Descricao" class="form-control" id="cidade1" style="font-size: small"
                                    placeholder="Digite a cidade" required value="Mogi das Cruzes">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
@@ -228,7 +228,7 @@
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <input type="hidden" asp-for="@item.Cidade.Estado.Id" name="Cidade.Estado.Id" />
                             <span>Estado</span>
-                            <input asp-for="@item.Cidade.Estado.Descricao" type="text" name="Cidade.Estado.Descricao" class="form-control" id="estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()" style="font-size: small"
+                            <input asp-for="@item.Cidade.Estado.Descricao" type="text" name="Cidade.Estado.Descricao" class="form-control" id="estado1" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()" style="font-size: small"
                                    placeholder="Digite o estado" value="SP">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
@@ -238,7 +238,7 @@
                         <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                             <input type="hidden" asp-for="@item.Cidade.Estado.Pais.Id" name="Cidade.Estado.Pais.Id" />
                             <span>País</span>
-                            <input asp-for="@item.Cidade.Estado.Pais.Descricao" type="text" name="Cidade.Estado.Pais.Descricao" class="form-control" id="pais" placeholder="Digite o país" style="font-size: small"
+                            <input asp-for="@item.Cidade.Estado.Pais.Descricao" type="text" name="Cidade.Estado.Pais.Descricao" class="form-control" id="pais1" placeholder="Digite o país" style="font-size: small"
                                    value="Brasil" required value="Brasil">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
@@ -302,8 +302,8 @@
 
                 <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Cep</span>
-                    <input asp-for="@item.Cep" name="cep" type="text" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}"
-                           style="font-size: small" required value="08710-025">
+                    <input asp-for="@item.Cep" name="cep" type="text" class="form-control" id="cep" placeholder="Digite o cep" maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" 
+                     style="font-size: small" required value="08710-025">
                     <div class="invalid-feedback">
                         *Campo obrigatório
                     </div>
@@ -516,9 +516,9 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Logradouro</span><i class="bi bi-lock"></i>
+                        <span>Logradouro</span><i class="bi bi-lock" id="lock-logradouro" hidden></i>
                         <input type="text" name="logradouro" class="form-control" id="logradouro-modal"
-                            placeholder="Digite o logradouro" required disabled>   
+                            placeholder="Digite o logradouro" required >   
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>                        
@@ -537,34 +537,34 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Bairro</span><i class="bi bi-lock"></i>
+                        <span>Bairro</span><i class="bi bi-lock" id="lock-bairro" hidden></i>
                         <input type="text" name="bairro" class="form-control" id="bairro-modal"
-                            placeholder="Digite o bairro" required disabled>
+                            placeholder="Digite o bairro" required >
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Cidade</span><i class="bi bi-lock"></i>
+                        <span>Cidade</span><i class="bi bi-lock" id="lock-cidade" hidden></i>
                         <input type="text" name="cidade" class="form-control" id="cidade-modal"
-                            placeholder="Digite a cidade" required disabled>
+                            placeholder="Digite a cidade" required >
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
                     </div>
 
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Estado</span><i class="bi bi-lock"></i>
+                        <span>Estado</span><i class="bi bi-lock" id="lock-estado" hidden></i>
                         <input type="text" name="estado" class="form-control" id="estado-modal"
-                            placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2" required disabled onChange="maiusculo()">
+                            placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2" required onChange="maiusculo()">
                             <div class="invalid-feedback">
                                 *Campo obrigatório
                             </div>
                     </div>
 
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>País</span>
+                        <span >País</span><i class="bi bi-lock" id="lock-pais" hidden></i>
                         <input type="text" name="pais" class="form-control" id="pais-modal" placeholder="Digite o país"required>
                         <div class="invalid-feedback">
                             *Campo obrigatório
@@ -775,6 +775,7 @@ style="position:fixed;bottom:20px;right:18px;">
             document.getElementById('bairro-modal').value=("");
             document.getElementById('cidade-modal').value=("");
             document.getElementById('estado-modal').value=("");
+            document.getElementById('pais-modal').value=("");
        
     }
 
@@ -785,17 +786,50 @@ style="position:fixed;bottom:20px;right:18px;">
             document.getElementById('bairro-modal').value=(conteudo.bairro);
             document.getElementById('cidade-modal').value=(conteudo.localidade);
             document.getElementById('estado-modal').value=(conteudo.uf);
+            document.getElementById('pais-modal').value=("Brasil");
+
+            auxDesabilitarCampo('logradouro-modal', true);            
+            auxDesabilitarCampo('bairro-modal', true);           
+            auxDesabilitarCampo('cidade-modal', true);           
+            auxDesabilitarCampo('estado-modal', true);            
+            auxDesabilitarCampo('pais-modal', true);
+
+            auxEsconderMostrarCampo('lock-logradouro',false);
+            auxEsconderMostrarCampo('lock-bairro', false);
+            auxEsconderMostrarCampo('lock-cidade', false);
+            auxEsconderMostrarCampo('lock-estado', false);
+            auxEsconderMostrarCampo('lock-pais', false);
+       
             
         } //end if.
         else {
             //CEP não Encontrado.
             limpa_formulário_cep();
             alert("CEP não encontrado.");
+            auxDesabilitarCampo('logradouro-modal', false);            
+            auxDesabilitarCampo('bairro-modal', false);           
+            auxDesabilitarCampo('cidade-modal', false);           
+            auxDesabilitarCampo('estado-modal', false);            
+            auxDesabilitarCampo('pais-modal', false);
+
+            auxEsconderMostrarCampo('lock-logradouro',true);
+            auxEsconderMostrarCampo('lock-bairro', true);
+            auxEsconderMostrarCampo('lock-cidade', true);
+            auxEsconderMostrarCampo('lock-estado', true);
+            auxEsconderMostrarCampo('lock-pais', true);
         }
+    }
+
+    function auxEsconderMostrarCampo(id, valor){
+        document.getElementById(id).hidden = valor;
+    }
+
+    function auxDesabilitarCampo(id, valor){
+        document.getElementById(id).disabled = valor;
     }
         
     function pesquisacep(valor) {
-debugger;
+
         //Nova variável "cep" somente com dígitos.
         var cep = valor.replace(/\D/g, '');
 
@@ -813,6 +847,7 @@ debugger;
                 document.getElementById('bairro-modal').value="...";
                 document.getElementById('cidade-modal').value="...";
                 document.getElementById('estado-modal').value="...";
+                document.getElementById('pais-modal').value="...";
                
               
 
