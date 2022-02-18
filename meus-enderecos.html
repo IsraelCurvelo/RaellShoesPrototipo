@@ -63,9 +63,9 @@
           <li class="dropdown  active"><a href="#"><span>Meu Perfil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
               <li><a href="meuperfil.html">Meu Perfil</a></li> 
-              <li><a href="#">Meus Endereços</a></li>
+              <li><a href="meus-enderecos.html">Meus Endereços</a></li>
               <li><a href="meus-cartoes.html">Meus Cartões</a></li>  
-              <li><a href="#">Meus Pedidos</a></li>
+              <li><a href="meus-pedidos.html">Meus Pedidos</a></li>
               <li><a href="#">Troca e Devoluções</a></li> 
               <li><a href="#">Ranking e Vales</a></li> 
               <li><a href="alterar-senha.html">Alterar Senha</a></li>
@@ -144,7 +144,7 @@
                         </div>
 
                         <div class="col-lg-1 col-md-1 form-group mt-3 mt-md-0" id="comb-form">
-                            <input type="button" class="btn btn-outline-info btn-sm" id="detalhes-endereco" style="margin-top: 20px; border-radius: 10px " value="Ver detalhes" onclick="mostrarDetalhes(1)">
+                            <input type="button" class="btn btn-outline-info btn-sm" id="detalhes-endereco-0" style="margin-top: 20px; border-radius: 10px " value="Ver detalhes" onclick="mostrarDetalhes(1, 'detalhes-endereco-0')">
                         </div>
 
                     </div>
@@ -310,7 +310,7 @@
                 </div>
 
                 <div class="col-lg-1 col-md-1 form-group mt-3 mt-md-0" id="comb-form">
-                    <input type="button" class="btn btn-outline-info btn-sm" id="detalhes-endereco" style="margin-top: 20px; border-radius: 10px " value="Ver detalhes" onclick="mostrarDetalhes(2)">
+                    <input type="button" class="btn btn-outline-info btn-sm" id="detalhes-endereco-1" style="margin-top: 20px; border-radius: 10px " value="Ver detalhes" onclick="mostrarDetalhes(2, 'detalhes-endereco-1')">
                 </div>
 
             </div>
@@ -685,14 +685,16 @@ style="position:fixed;bottom:20px;right:18px;">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
-    function mostrarDetalhes(id){
+    function mostrarDetalhes(id, idbotao) {
 
         debugger;
 
         if (document.getElementById(id).hidden) {
             document.getElementById(id).hidden = false
+            document.getElementById(idbotao).value = "Recolher";
         } else {
-            document.getElementById(id).hidden = true
+            document.getElementById(id).hidden = true;
+            document.getElementById(idbotao).value = "Ver detalhes";
         }
     }
 </script>

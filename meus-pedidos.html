@@ -62,10 +62,10 @@
           <li><a class="nav-link scrollto" href="carrinho.html">Carrinho</a></li>           
           <li class="dropdown  active"><a href="#"><span>Meu Perfil</span> <i class="bi bi-chevron-down"></i></a>
             <ul> 
-              <li><a href="#">Meu Perfil</a></li> 
+              <li><a href="meuperfil.html">Meu Perfil</a></li> 
               <li><a href="meus-enderecos.html">Meus Endereços</a></li>
               <li><a href="meus-cartoes.html">Meus Cartões</a></li>  
-              <li><a href="#">Meus Pedidos</a></li>
+              <li><a href="meus-pedidos.html">Meus Pedidos</a></li>
               <li><a href="#">Troca e Devoluções</a></li> 
               <li><a href="#">Ranking e Vales</a></li> 
               <li><a href="alterar-senha.html">Alterar Senha</a></li>
@@ -90,38 +90,47 @@
     <!--Pedido-->
     <div class="container mt-5">
         <!--Box Dados Pedido-->
-        <div class="info-wrap">
+        <div class="info-wrap" style=" border-radius:20px">
             <div class="row">
-                <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Número do Pedido </span>
-                    <input disabled type="textarea" name="numero-pedido" readonly class="form-control-plaintext" id="numero-pedido" value="987873-3">
+                    <input disabled type="textarea" name="numero-pedido" readonly class="form-control-plaintext" id="numero-pedido" value="987873-3" style="color: green; font-weight: bold;">
                     <br>
                 </div>
 
-                <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Valor Total </span>
-                    <input disabled type="textarea" name="valor-pedido" readonly class="form-control-plaintext" id="valor-pedido" value="R$ 499,98">
+                    <input disabled type="textarea" name="valor-pedido" readonly class="form-control-plaintext" id="valor-pedido" value="R$ 499,98" style="color: red; font-weight: bold;">
                     <br>
                 </div>
 
-                <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form" readonly>
+                <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form" readonly>
+                    <span>Data da Compra</span>
+                    <input disabled type="text" name="forma-pagamento" readonly class="form-control-plaintext" id="data-pagamento" value="17/02/2022" style="color: rgb(0, 19, 128); font-weight: bold;">
+                </div>
+
+                <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form" readonly>
                     <span>Forma de Pagamento</span>
-                    <input disabled type="text" name="forma-pagamento" readonly class="form-control-plaintext" id="forma-pagamento" value="Cartão de Crédito">
+                    <input disabled type="text" name="forma-pagamento" readonly class="form-control-plaintext" id="forma-pagamento" value="Cartão de Crédito" style="color: rgb(0, 19, 128); font-weight: bold;">
+                </div>
+
+                <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
+                    <span>Status</span>
+                    <input disabled type="text" readonly class="form-control-plaintext" name="status-produto" id="status-produto" value="EM TRÂNSITO" style="color: rgb(0, 19, 128); font-weight: bold; font-style: italic;">
+                    <div class="validate"></div>
                 </div>
 
 
-                <div class="col-lg-3 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
-                    <span>Status</span>
-                    <input disabled type="text" readonly class="form-control-plaintext" name="status-produto" id="status-produto" value="EM TRÂNSITO">
-                    <div class="validate"></div>
+                <div class="col-lg-2 col-md-1 form-group mt-3 mt-md-0" id="comb-form">
+                    <input type="button" class="btn btn-outline-info btn-sm" style="margin-top: 20px; margin-left:-8px; border-radius:5px" id="detalhes-pedido0" value="Ver Produtos" onclick="mostrarDetalhes(1, 'detalhes-pedido0')">
                 </div>
             </div>
         
-            <hr>
+            
 
             <!--Componente de prodtos-->
-            <div class="row">
-                <h5><strong style="padding-left: 10px; color:rgb(65, 199, 121);"> Produtos </strong></h5><br>
+            <div class="row" id="1" style="margin-top: 40px;" hidden>
+                <h5><strong style="padding-left: 10px;  color:rgb(65, 199, 121);"> Produtos </strong></h5><br>
                 <br><br>
                 <!--Produto 1-->
                 <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
@@ -246,36 +255,43 @@
         <!--Pedido-->
         <div class="container mt-5">
             <!--Box Historico-->
-            <div class="info-wrap">
+            <div class="info-wrap" style=" border-radius:20px; ">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-                        <span>Número do pedido </span>
-                        <input disabled type="textarea" name="numero-pedido" readonly class="form-control-plaintext" id="numero-pedido" value="987873-3">
+                    <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
+                        <span>Número do Pedido </span>
+                        <input disabled type="textarea" name="numero-pedido" readonly class="form-control-plaintext" id="numero-pedido" value="5435-54" style="color: green; font-weight: bold;">
                         <br>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+    
+                    <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Valor Total </span>
-                        <input disabled type="textarea" name="valor-pedido" readonly class="form-control-plaintext" id="valor-pedido" value="R$ 249,99">
+                        <input disabled type="textarea" name="valor-pedido" readonly class="form-control-plaintext" id="valor-pedido" value="R$ 299,98" style="color: red; font-weight: bold;">
                         <br>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form" readonly>
-                        <span>Forma de Pagamento</span>
-                        <input disabled type="text" name="forma-pagamento" readonly class="form-control-plaintext" id="forma-pagamento" value="Cartão de Crédito">
+    
+                    <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form" readonly>
+                        <span>Data da Compra</span>
+                        <input disabled type="text" name="forma-pagamento" readonly class="form-control-plaintext" id="data-pagamento" value="02/11/2019" style="color: rgb(0, 19, 128); font-weight: bold;">
                     </div>
-
-
-                    <div class="col-lg-3 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
+    
+                    <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form" readonly>
+                        <span>Forma de Pagamento</span>
+                        <input disabled type="text" name="forma-pagamento" readonly class="form-control-plaintext" id="forma-pagamento" value="Cartão de Débito" style="color: rgb(0, 19, 128); font-weight: bold;">
+                    </div>
+    
+                    <div class="col-lg-2 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
                         <span>Status</span>
-                        <input disabled type="text" readonly class="form-control-plaintext" name="status-produto" id="status-produto" value="ENTREGUE">
+                        <input disabled type="text" readonly class="form-control-plaintext" name="status-produto" id="status-produto" value="ENTREGUE" style="color: rgb(0, 19, 128); font-weight: bold; font-style: italic;">
                         <div class="validate"></div>
                     </div>
-                </div>
+    
+    
+                    <div class="col-lg-2 col-md-1 form-group mt-3 mt-md-0" id="comb-form">
+                        <input type="button" class="btn btn-outline-info btn-sm" style="margin-top: 20px; margin-left:-8px; border-radius:5px" id="detalhes-pedido" value="Ver Produtos" onclick="mostrarDetalhes(2, 'detalhes-pedido')">
+                    </div>
+                </div>               
 
-                <hr>
-
-                <div class="row">
+                <div class="row" id="2" style="margin-top: 40px;" hidden>
                     <h5><strong style="padding-left: 10px; color:rgb(65, 199, 121);"> Produtos </strong></h5><br>
                     <br><br>
                     <!--Produto 1-->
@@ -356,7 +372,7 @@
                 </div>
 
 
-                </div><br>
+                </div>
             </div>
 
         </div><br><br>
@@ -434,29 +450,19 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  <script>
-    function definirCartoes() {
+
+<script>
+    function mostrarDetalhes(id, idbotao) {
+
         debugger;
 
-        var escolha = (document.getElementById('definircartoes'));
-        var teste = escolha.options[escolha.selectedIndex].value;
-
-        if (teste == 1) {
-            document.getElementById('cartao2').hidden = true
-            document.getElementById('cartao3').hidden = true
-        } else if (teste == 2) {
-            document.getElementById('cartao2').hidden = false
-            document.getElementById('cartao3').hidden = true
-        } else if (teste == 3) {
-            document.getElementById('cartao2').hidden = false
-            document.getElementById('cartao3').hidden = false
+        if (document.getElementById(id).hidden) {
+            document.getElementById(id).hidden = false
+            document.getElementById(idbotao).value = "Recolher";
+        } else {
+            document.getElementById(id).hidden = true;
+            document.getElementById(idbotao).value = "Ver Produtos";
         }
-    }
-
-    function ContinuarPedido(id){
-        debugger;
-        //var status = (document.getElementById(id).hidden);
-        document.getElementById(id).hidden = false;            
     }
 </script>
 
