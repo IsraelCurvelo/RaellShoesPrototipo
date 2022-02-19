@@ -283,7 +283,7 @@
 
                             <div class="form-check form-switch">
                                 <span>Usar como endereço de cobrança?</span>
-                                <input asp-for="FlagCobranca" type="checkbox" class="form-check-input" id="flag-end-cobranca" checked onclick="setarEnderecoCobranca()">
+                                <input asp-for="FlagCobranca" type="checkbox" class="form-check-input" id="flag-end-cobranca" checked  onchange="setarEnderecoCobranca()">
                             </div>
                         </div>
 
@@ -292,6 +292,258 @@
 
                    
                     <br><br>
+
+                <!--Box Endereço Cobrança-->
+                <div class="info-wrap" id="endereco-cobranca" hidden>
+                    <div class="col-lg-3 col-md-6 info">
+                        <i class="bi bi-house" style="margin-top: -8px;"></i>
+                    </div>
+                    <h4> <strong style="padding-left: 10px;"> Qual será o endereço de cobrança?</strong></h4><br>
+
+
+                    <div class="row">
+                        <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Tipo de Endereço</span><i class="bi bi-lock"></i>
+                            <select asp-for="Endereco.TipoEndereco" class="form-select" id="tipo-end-cob" disabled required>
+                                <option>Cobrança</option>
+                            </select>                            
+                        </div>
+                        <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Nome do endereço</span>
+                            <input type="text" name="fraseendereco" class="form-control" id="fraseendereco-cob" placeholder="Dê um nome para este endereço" >    
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>                        
+                        </div>
+    
+                        <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Tipo de Endereço</span>
+                            <select id="tipo-endereco-cob" class="form-select">
+                                <option></option>
+                                <option>Entrega</option>
+                                <option>Cobrança</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                *Campo obrigatório
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Tipo de Logradouro</span>
+                            <select class="form-select" id="tipoLogradouro-cob">                                
+                                <option></option>
+                                <option>Rua</option>
+                                <option>Avenida</option>
+                                <option>Rodovia</option>
+                                <option>Estrada</option>
+                                <option>Viela</option>
+                                <option>Travessa</option>
+                            </select>     
+                            <div class="invalid-feedback">
+                                *Campo obrigatório
+                            </div>                       
+                        </div>
+                        <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Cep</span>
+                            <input type="text" name="cep" class="form-control" id="cep-cob" placeholder="Digite o cep"  maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}">                                
+                            <div class="invalid-feedback">
+                                *Campo obrigatório
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Logradouro</span><i class="bi bi-lock" id="lock-logradouro-cob" hidden></i>
+                            <input type="text" name="logradouro" class="form-control" id="logradouro-cob"
+                                placeholder="Digite o logradouro" >   
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>                        
+                        </div>
+                        <div class="col-lg-1 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Número</span>
+                            <input type="text" class="form-control" name="numero" id="numero-cob" placeholder="N°">
+                            <div class="invalid-feedback">
+                                *Campo obrigatório
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Complemento</span>
+                            <input type="text" class="form-control" name="complemento" id="complemento-cob"
+                                placeholder="Caso houver, digite o complemento">
+                        </div>
+    
+                        <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Bairro</span><i class="bi bi-lock" id="lock-bairro-cob" hidden></i>
+                            <input type="text" name="bairro" class="form-control" id="bairro-cob"
+                                placeholder="Digite o bairro"  >
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>
+                        </div>
+    
+                        <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Cidade</span><i class="bi bi-lock" id="lock-cidade-cob" hidden></i>
+                            <input type="text" name="cidade" class="form-control" id="cidade-cob"
+                                placeholder="Digite a cidade"  >
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>
+                        </div>
+    
+                        <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Estado</span><i class="bi bi-lock" id="lock-estado-cob" hidden></i>
+                            <input type="text" name="estado" class="form-control" id="estado-cob"
+                                placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2"  onChange="maiusculo()">
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>
+                        </div>
+    
+                        <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span >País</span><i class="bi bi-lock" id="lock-pais-cob" hidden></i>
+                            <input type="text" name="pais" class="form-control" id="pais-cob" placeholder="Digite o país">
+                            <div class="invalid-feedback">
+                                *Campo obrigatório
+                            </div>
+                        </div>   
+                        
+    
+                        <div class="col-lg-12 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                            <span>Observações</span>
+                            <textarea type="text" name="observacoes" class="form-control" id="observacoes-cob"
+                                placeholder="Tem alguma observação?" data-rule="minlen:3" rows="3"></textarea>
+                        </div>                     
+
+                    </div>
+                    
+                    </div>
+
+                                
+<br>
+                    <!--Box Endereço Entrega-->
+                    <div class="info-wrap" id="endereco-entrega" hidden>
+                        
+                        <div class="col-lg-3 col-md-6 info">
+                            <i class="bi bi-house" style="margin-top: -8px;"></i>
+                        </div>
+                        <h4> <strong style="padding-left: 10px;"> Qual será o endereço de entrega?</strong></h4><br>
+    
+    
+                        <div class="row">
+                            <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Tipo de Endereço</span><i class="bi bi-lock"></i>
+                                <select asp-for="Endereco.TipoEndereco" class="form-select" disabled required>
+                                    <option>Entrega</option>
+                                </select>                            
+                            </div>
+                            <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Nome do endereço</span>
+                                <input type="text" name="fraseendereco" class="form-control" id="fraseendereco-ent" placeholder="Dê um nome para este endereço">    
+                                    <div class="invalid-feedback">
+                                        *Campo obrigatório
+                                    </div>                        
+                            </div>
+        
+                            <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Tipo de Endereço</span>
+                                <select id="tipo-endereco-ent" class="form-select">
+                                    <option></option>
+                                    <option>Entrega</option>
+                                    <option>Cobrança</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Tipo de Logradouro</span>
+                                <select class="form-select" id="tipoLogradouro-ent" >                                
+                                    <option></option>
+                                    <option>Rua</option>
+                                    <option>Avenida</option>
+                                    <option>Rodovia</option>
+                                    <option>Estrada</option>
+                                    <option>Viela</option>
+                                    <option>Travessa</option>
+                                </select>     
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>                       
+                            </div>
+                            <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Cep</span>
+                                <input type="text" name="cep" class="form-control" id="cep-ent" placeholder="Digite o cep"  maxlength="9" onkeypress="formatar('#####-###', this);" pattern="[0-9]{5}-[0-9]{3}" onblur="pesquisacep(this.value)">                                
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Logradouro</span><i class="bi bi-lock" id="lock-logradouro-ent" hidden></i>
+                                <input type="text" name="logradouro" class="form-control" id="logradouro-ent"
+                                    placeholder="Digite o logradouro" >   
+                                    <div class="invalid-feedback">
+                                        *Campo obrigatório
+                                    </div>                        
+                            </div>
+                            <div class="col-lg-1 col-md-2 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Número</span>
+                                <input type="text" class="form-control" name="numero" id="numero-ent" placeholder="N°">
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Complemento</span>
+                                <input type="text" class="form-control" name="complemento" id="complemento-ent"
+                                    placeholder="Caso houver, digite o complemento">
+                            </div>
+        
+                            <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Bairro</span><i class="bi bi-lock" id="lock-bairro-ent" hidden></i>
+                                <input type="text" name="bairro" class="form-control" id="bairro-ent"
+                                    placeholder="Digite o bairro"  >
+                                    <div class="invalid-feedback">
+                                        *Campo obrigatório
+                                    </div>
+                            </div>
+        
+                            <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Cidade</span><i class="bi bi-lock" id="lock-cidade-ent" hidden></i>
+                                <input type="text" name="cidade" class="form-control" id="cidade-ent"
+                                    placeholder="Digite a cidade"  >
+                                    <div class="invalid-feedback">
+                                        *Campo obrigatório
+                                    </div>
+                            </div>
+        
+                            <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Estado</span><i class="bi bi-lock" id="lock-estado-ent" hidden></i>
+                                <input type="text" name="estado" class="form-control" id="estado-ent"
+                                    placeholder="Digite o estado" pattern="[A-Z a-z]{2}" maxlength="2"  onChange="maiusculo()">
+                                    <div class="invalid-feedback">
+                                        *Campo obrigatório
+                                    </div>
+                            </div>
+        
+                            <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span >País</span><i class="bi bi-lock" id="lock-pais-ent" hidden></i>
+                                <input type="text" name="pais" class="form-control" id="pais-ent" placeholder="Digite o país">
+                                <div class="invalid-feedback">
+                                    *Campo obrigatório
+                                </div>
+                            </div>   
+                            
+        
+                            <div class="col-lg-12 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                                <span>Observações</span>
+                                <textarea type="text" name="observacoes" class="form-control" id="observacoes-ent"
+                                    placeholder="Tem alguma observação?" data-rule="minlen:3" rows="3"></textarea>
+                            </div>                     
+    
+                        </div>
+                        </div>
+    
+                        <br><br>
 
                     <!--Box Login-->
                     <div class="info-wrap">
@@ -496,6 +748,60 @@
         }
     };
 
+    </script>
+
+    <script>
+       
+        function setarEnderecoCobranca(){                      
+            var endCobranca = document.getElementById('flag-end-cobranca').checked;     
+            var camposObrigatoriosEnderecoCobranca =[
+                "fraseendereco-cob", "tipo-endereco-cob", "tipoLogradouro-cob", "cep-cob", "logradouro-cob",
+                "numero-cob", "bairro-cob",  "cidade-cob", "estado-cob", "pais-cob"];
+
+            if(endCobranca){
+                document.getElementById('endereco-cobranca').hidden = true;
+
+                for(var i = 0 ; camposObrigatoriosEnderecoCobranca.length; i ++){
+                    auxRequererCampo(camposObrigatoriosEnderecoCobranca[i], false);
+                }
+            }else{
+                document.getElementById('endereco-cobranca').hidden = false;
+
+                for(var i = 0 ; camposObrigatoriosEnderecoCobranca.length; i ++){
+                    auxRequererCampo(camposObrigatoriosEnderecoCobranca[i], true);
+                
+                }
+            }
+                
+        }
+
+        function setarEnderecoEntrega(){
+            var endEntrega = document.getElementById('flag-end-entrega').checked;
+            var camposObrigatoriosEnderecoEntrega =[
+                "fraseendereco-ent", "tipo-endereco-ent", "tipoLogradouro-ent", "cep-ent", "logradouro-ent",
+                "numero-ent", "bairro-ent",  "cidade-ent", "estado-ent", "pais-ent"];
+
+            if(endEntrega){
+                document.getElementById('endereco-entrega').hidden = true;
+
+                for(var i = 0 ; camposObrigatoriosEnderecoEntrega.length; i ++){
+                    auxRequererCampo(camposObrigatoriosEnderecoEntrega[i], false);
+                }
+            }else{
+                document.getElementById('endereco-entrega').hidden = false;
+
+                for(var i = 0 ; camposObrigatoriosEnderecoEntrega.length; i ++){
+                    auxRequererCampo(camposObrigatoriosEnderecoEntrega[i], true);
+                
+                }
+            }
+             
+               
+        }      
+        
+        function auxRequererCampo(id, valor){
+            document.getElementById(id).required = valor;
+        }
     </script>
 
 </body>
