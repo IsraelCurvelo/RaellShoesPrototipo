@@ -258,7 +258,7 @@
             <h4> <strong style="padding-left: 10px;">Endereço de Entrega</strong></h4>
             <div class="col-lg-12 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                 <button class="btn btn-dark btn-sm"
-                    style="border-radius: 10px ; margin-left: 89%; margin-top: -50px; " data-bs-toggle="modal" data-bs-target="#modalEndereco">Novo
+                    style="border-radius: 10px ; margin-left: 88%; margin-top: -50px; " data-bs-toggle="modal" data-bs-target="#modalEndereco">Novo
                     Endereço</button>
             </div>            
             <br>
@@ -367,22 +367,22 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Selecione um cartão para pagamento </span>
-                    <select class="form-select" style="font-size: small; ">
-                        <option>Nubank Virtual</option>
-                        <option>C6 Crédito</option>
-                        <option>Caixa Débito</option>
+                    <select class="form-select" style="font-size: small; " id="tipo-cartao1" onchange="tipoCartao(this.value, this.id)">
+                        <option value="1">Nubank Virtual</option>
+                        <option value="2">C6 Crédito</option>
+                        <option value="3">Caixa Débito</option>
                     </select>
                 </div>
 
                 <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Valor a pagar </span>
-                    <input type="text" name="valor-produto" class="form-control " style=" font-size: small;"
-                        id="valor-produto">
+                    <input type="text" name="valor-produto1" class="form-control " style=" font-size: small;"
+                        id="valor-produto1" value="R$ 519,97">
                 </div>
 
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Parcelamento</span>
-                    <select class="form-select" style="font-size: small; ">
+                    <select class="form-select" style="font-size: small; " id="parcelamento1">
                         <option>1x sem juros</option>
                         <option>2x sem juros</option>
                         <option>3x sem juros</option>
@@ -404,22 +404,22 @@
             <div class="row" hidden id="cartao2">
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Selecione um cartão para pagamento </span>
-                    <select class="form-select" style="font-size: small; ">
-                        <option>Nubank Virtual</option>
-                        <option>C6 Crédito</option>
-                        <option>Caixa Débito</option>
+                    <select class="form-select" style="font-size: small; " id="tipo-cartao2" onchange="tipoCartao(this.value, this.id)">
+                        <option value="1">Nubank Virtual</option>
+                        <option value="2">C6 Crédito</option>
+                        <option value="3">Caixa Débito</option>
                     </select>
                 </div>
 
                 <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Valor a pagar </span>
-                    <input type="text" name="valor-produto" class="form-control " style=" font-size: small;"
-                        id="valor-produto">
+                    <input type="text" name="valor-produto2" class="form-control " style=" font-size: small;"
+                        id="valor-produto2">
                 </div>
 
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Parcelamento</span>
-                    <select class="form-select" style="font-size: small; ">
+                    <select class="form-select" style="font-size: small; " id="parcelamento2">
                         <option>1x sem juros</option>
                         <option>2x sem juros</option>
                         <option>3x sem juros</option>
@@ -442,22 +442,22 @@
             <div class="row" hidden id="cartao3">
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Selecione um cartão para pagamento </span>
-                    <select class="form-select" style="font-size: small; ">
-                        <option>Nubank Virtual</option>
-                        <option>C6 Crédito</option>
-                        <option>Caixa Débito</option>
+                    <select class="form-select" style="font-size: small; " id="tipo-cartao3" onchange="tipoCartao(this.value, this.id)">
+                        <option value="1">Nubank Virtual</option>
+                        <option value="2">C6 Crédito</option>
+                        <option value="3">Caixa Débito</option>
                     </select>
                 </div>
 
                 <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Valor a pagar </span>
-                    <input type="text" name="valor-produto" class="form-control " style=" font-size: small;"
-                        id="valor-produto">
+                    <input type="text" name="valor-produto3" class="form-control " style=" font-size: small;"
+                        id="valor-produto3">
                 </div>
 
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                     <span>Parcelamento</span>
-                    <select class="form-select" style="font-size: small; ">
+                    <select class="form-select" style="font-size: small; " id="parcelamento3">
                         <option>1x sem juros</option>
                         <option>2x sem juros</option>
                         <option>3x sem juros</option>
@@ -840,17 +840,45 @@
         debugger;
 
         var escolha = (document.getElementById('definircartoes'));
-        var teste = escolha.options[escolha.selectedIndex].value;
+        var escolhaCartoes = escolha.options[escolha.selectedIndex].value;        
 
-        if (teste == 1) {
-            document.getElementById('cartao2').hidden = true
-            document.getElementById('cartao3').hidden = true
-        } else if (teste == 2) {
-            document.getElementById('cartao2').hidden = false
-            document.getElementById('cartao3').hidden = true
-        } else if (teste == 3) {
-            document.getElementById('cartao2').hidden = false
-            document.getElementById('cartao3').hidden = false
+        if (escolhaCartoes == 1) {
+            document.getElementById('cartao2').hidden = true;
+            document.getElementById('cartao3').hidden = true;
+            document.getElementById('valor-produto1').value = "R$ 519,97";
+        } else if (escolhaCartoes == 2) {
+            document.getElementById('cartao2').hidden = false;
+            document.getElementById('cartao3').hidden = true;
+            document.getElementById('valor-produto1').value = "R$ 259,98";
+            document.getElementById('valor-produto2').value = "R$ 259,98";
+        } else if (escolhaCartoes == 3) {
+            document.getElementById('cartao2').hidden = false;
+            document.getElementById('cartao3').hidden = false;
+            document.getElementById('valor-produto1').value = "R$ 173,32";
+            document.getElementById('valor-produto2').value = "R$ 173,32";
+            document.getElementById('valor-produto3').value = "R$ 173,32";
+        }
+    }
+
+    function tipoCartao(valorCartao, id){
+        if(id == "tipo-cartao1"){
+            if(valorCartao ==3){
+                document.getElementById('parcelamento1').disabled = true;
+            }else{
+                document.getElementById('parcelamento1').disabled = false;
+            }
+        }else if(id == "tipo-cartao2"){
+            if(valorCartao ==3){
+                document.getElementById('parcelamento2').disabled = true;
+            }else{
+                document.getElementById('parcelamento2').disabled = false;
+            }
+        }else if(id == "tipo-cartao3"){
+            if(valorCartao ==3){
+                document.getElementById('parcelamento3').disabled = true;
+            }else{
+                document.getElementById('parcelamento3').disabled = false;
+            }
         }
     }
 
