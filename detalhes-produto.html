@@ -75,68 +75,168 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-8">
+          <div class="col-lg-6">
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_01_standard.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_01_standard.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid" class="img-fluid">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_02_standard_hover.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_02_standard_hover.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_04_standard.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_04_standard.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_05_standard.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_05_standard.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_06_standard.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_06_standard.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_09_standard.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_09_standard.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_41_detail.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_41_detail.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_42_detail.jpg" alt="" style="height: 550px;width: 720px;">
+                  <img src="assets/img/Produtos/Adidas/Tênis Adidas Grand Court Base Masculino/Tenis_Grand_Court_Branco_F36483_42_detail.jpg" alt="" style="height: 550px;width: 720px;" class="img-fluid">
                 </div>
               </div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
 
-          <div class="col-lg-4" >
+
+          <div class="col-lg-6" >
             <div class="portfolio-info">
-              <h3> TÊNIS GRAND COURT</h3>
+              <h3> TÊNIS ADIDAS GRAND COURT MASCULINO</h3>
               <ul>
-                <li><strong>Categoria</strong>: Esportivo</li>
+                <li><strong>Categoria</strong>: Esportivo / Casual</li>
                 <li><strong>Marca</strong>: Adidas</li>
                 <li><strong>Data de Lançamento</strong>: 20 de Janeiro de 2022</li>
                 <li><strong>URL Fabricante</strong>: <a href="https://www.adidas.com.br/tenis-grand-court/F36483.html">https://www.adidas.com.br/tenis-grand-court/F36483.html</a></li>
               </ul>
+              <br>
+              <h6>Cores e Tamanhos disponíveis</h6>
+
+              <div class="row">
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                  <span>Cores</span>
+                  <select asp-for="" asp-items="" name="cor-disponivel" class="form-select" required style="font-size: small">
+                    <option ></option>
+                    <option value="1">Branco/Preto</option>
+                    <option value="2">Branco/Azul</option> 
+                    <option value="3">Preto/Branco</option> 
+                    <option value="4">Branco</option> 
+                    <option value="5">Preto</option> 
+                  </select>                
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="div-tamanho-troca"  >
+                  <span style="color: black;">Tamanho</span>
+                  <select asp-for="tamanho" class="form-select" id="tamanho" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Bandeira>()" style="font-size:small">
+                      <option></option>
+                      <option value="1">34</option>
+                      <option value="2">35</option>
+                      <option value="3">36</option>
+                      <option value="4">37</option>
+                      <option value="5">38</option>
+                      <option value="6">39</option>
+                      <option value="7">40</option>
+                      <option value="8">41</option>
+                      <option value="9">42</option>
+                      <option value="10">43</option>
+                      <option value="11">44</option>
+                      <option value="12">45</option>
+                      <option value="12">46</option>
+                      
+                  </select>                
+                </div>
+                
+              </div><br><br>
+
+              <div class="row">
+                <div class="col-lg-12">                  
+                    <h4 style="color: red; font-weight: bold;"> R$ 249,99</h4>
+                    <p>ou até 12x de R$ 20,83</p>   
+                </div>
+              </div>
+             
+              <div class="row">
+                <div class="col-lg-12">                                
+                  <input type="button" class="btn btn-success btn col-lg-5" style="border-radius:10px" value="Comprar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <input type="button" class="btn btn-warning btn col-lg-6" style="border-radius:10px" value="Adicionar ao carrinho" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                </div>                
+              </div><p></p>
+              </div>
+            
+            
+
+            <div class="row" hidden>
+              <div class="col-lg-6">
+                <div class="portfolio-info">
+                  <h4 style="color: red; font-weight: bold;"> R$ 249,99</h4>
+                  <p>ou até 12x de R$ 20,83</p>
+                  
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="portfolio-info">
+                  <input type="button" class="btn btn-success btn-sm col-lg-12" style="border-radius:10px" value="Comprar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <p></p>
+                  <input type="button" class="btn btn-warning btn-sm col-lg-12" style="border-radius:10px" value="Adicionar ao carrinho" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                </div>
+              </div>
             </div>
-            <div class="portfolio-description" style="padding-left: 14px;">
-              <h2> TÊNIS GRAND COURT</h2>
-              <h5> TÊNIS SIMPLES COM O ESTILO CLÁSSICO</h5>
-              <p>
-                 Um estilo dos anos 70 repaginado. Este tênis se inspira nos estilos esportivos icônicos do passado e os leva para o futuro. O tênis molda o look do dia a dia com um cabedal laminado. As icônicas Três Listras exibidas nas laterais. O amortecimento em plush na entressola oferece maior conforto em cada passo.
-              </p>
-            </div>
+
+            
           </div>
 
         </div>
+<br><br>
+        <div class="portfolio-description" style="padding-left: 14px;">
+          <h2> TÊNIS GRAND COURT</h2>
+          <h5> TÊNIS SIMPLES COM O ESTILO CLÁSSICO</h5>
+          <p>
+             Um estilo dos anos 70 repaginado. Este tênis se inspira nos estilos esportivos icônicos do passado e os leva para o futuro. O tênis molda o look do dia a dia com um cabedal laminado. As icônicas Três Listras exibidas nas laterais. O amortecimento em plush na entressola oferece maior conforto em cada passo.
+          </p>
+        </div>
 
+        <div class="portfolio-description" style="padding-left: 14px;">
+          
+          <h5> DE ONTEM PRA HOJE</h5>
+          <p>
+            Use as lições do passado para um futuro ainda melhor. Enriquecida com toda a história de design da adidas, produzida com materiais contemporâneos. Uma coleção atemporal de roupas e calçados, inspiradas no passado, feitas para o presente.
+          </p>
+        </div>
+
+     
+
+      <div class="portfolio-description" style="padding-left: 14px;">
+          
+        <h2> DETALHES</h2>
+        <ul>
+          <li>Forma normal</li>
+          <li>Fecho de cadarço</li>
+          <li>Cabedal de laminado sintético</li>
+          <li>Solado de borracha</li>
+          <li>Palmilha Cloudfoam Comfort</li>
+          <li>Toque macio</li>
+          <li>Cor do artigo: Cloud White / Core Black / Cloud White</li>
+          <li>Código do artigo: F36483</li>
+        </ul>
       </div>
+
+    </div> </div>
     </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
