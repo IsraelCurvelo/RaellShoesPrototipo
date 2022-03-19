@@ -559,7 +559,7 @@
 
                             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                                 <span>Senha</span>
-                                <input asp-for="Usuario.Senha" type="password" class="form-control" id="senhauser" placeholder="Digite sua senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@@#]{8,}" required>
+                                <input asp-for="Usuario.Senha" type="password" class="form-control" id="senhauser" placeholder="Digite sua senha" pattern="(?=(?:.*?[A-Z]){1})(?=(?:.*?[a-z]){1})(?=(?:.*?[0-9]){1})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z$*&@@#]{8,}" required>
 
                                 <div class="invalid-feedback">
                                     A senha deve conter ao menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um digito.
