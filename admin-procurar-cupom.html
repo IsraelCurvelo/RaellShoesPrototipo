@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>RaellShoes - Admin - Procurar cliente</title>
+  <title>RaellShoes - Admin - Procurar Cupom</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -66,55 +66,41 @@
     <div class="container mt-5">
       <!--Box Clientes-->
       <div class="info-wrap" style=" border-radius:20px">
+        <div class="row">
+          <h5><strong style="  color: rgb(13, 236, 181);">CADASTRAR CUPOM </strong></h5><br>
 
-        <h5><strong style="  color: rgb(13, 236, 181);">Procurar Cliente </strong></h5><br>
+        </div>
+        <br>
+        <div class="row">
+          <input type="button" class="btn btn-success col-lg-12" style="border-radius:10px" value="Novo Cupom"
+            data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <!--Box Clientes-->
+      <div class="info-wrap" style=" border-radius:20px">
+
+        <h5><strong style="  color: rgb(13, 236, 181);">Procurar Cupom </strong></h5><br>
 
         <div class="row">
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Nome</span>
-            <input asp-for="Nome" class="form-control" id="name" placeholder="Digite o nome do cliente" minlength="3">
+          <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+            <span>Código</span>
+            <input asp-for="codigo" class="form-control" id="codigo" placeholder="Código do Cupom">
           </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>CPF</span>
-            <input asp-for="Cpf" class="form-control" id="cpf" placeholder="Digite o CPF do cliente" maxlength="14"
-              onkeypress="formatar('###.###.###-##', this);" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}">
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Data de Nascimento</span>
-            <input asp-for="DataNascimento" class="form-control" id="dataNascimento" type="date"
-              placeholder="Data de Nascimento">
-
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Gênero</span>
-            <br>
-            <select asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
-              class="form-select">
-              <option></option>
-              <option value="1">Masculino</option>
-              <option value="2">Feminino</option>
-            </select>
-          </div>
-
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Email</span>
-            <input asp-for="Nome" class="form-control" id="name" placeholder="Digite o email do cliente" minlength="3">
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Telefone</span>
-            <input asp-for="Cpf" class="form-control" id="cpf" placeholder="Digite o telefone do cliente" maxlength="14"
-              onkeypress="formatar('#####-####', this);" pattern="[0-9]{4}-[0-9]{5}||[0-9]{5}-[0-9]{4}">
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Data de Cadastro</span>
-            <input asp-for="DataNascimento" class="form-control" id="dataNascimento" type="date"
-              placeholder="Data de Nascimento">
-
-          </div>
+         
+          <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+            <span>Descrição</span>
+            <input asp-for="descricao" class="form-control" id="descricao" placeholder="Descrição do Cupom">
+          </div>     
+          
+          
           <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
             <span>Status</span>
             <br>
-            <select asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
+            <select asp-for="Status" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
               class="form-select">
               <option></option>
               <option value="1">Ativo</option>
@@ -141,44 +127,38 @@
               <thead>
                 <tr>
                   <th scope="col">Código</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">CPF</th>
-                  <th scope="col">Data de Nascimento</th>
+                  <th scope="col">Descrição</th>
                   <th scope="col">Status</th>
                   <th scope="col"></th>
-                  <th scope="col"></th>
+                  <th scope="col"></th>               
+                  
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">98</th>
-                  <td>João da Silva</td>
-                  <td>123.123.123-12</td>
-                  <td>12/07/1990</td>
-                  <td>Ativo</td>
-                  <td><button class="btn btn-warning btn-sm">Inativar</button></td>
-                  <td><a href="admin-listar-cliente.html"><button class="btn btn-info btn-sm">Ver Cliente</button></td></a>
+                  <th scope="row">5%OFF</th>
+                  <td>5% de Desconto</td>
+                  <td>Ativo</td>    
+                  <td><button class="btn btn-warning btn-sm">Inativar</button></td>                             
+                  <td><button class="btn btn-danger btn-sm">Excluir</button></td>
                 </tr>
 
                 <tr>
-                  <th scope="row">97</th>
-                  <td>Maria Soares</td>
-                  <td>123.455.673-92</td>
-                  <td>24/07/1989</td>
-                  <td>Ativo</td>
-                  <td><button class="btn btn-warning btn-sm">Inativar</button></td>
-                  <td><a href="admin-listar-cliente.html"><button class="btn btn-info btn-sm">Ver Cliente</button></td></a>
+                  <th scope="row">NIKE10</th>
+                  <td>10% de Desconto em produtos Nike</td>
+                  <td>Ativo</td>    
+                  <td><button class="btn btn-warning btn-sm">Inativar</button></td>                             
+                  <td><button class="btn btn-danger btn-sm">Excluir</button></td>
                 </tr>
 
+
                 <tr>
-                  <th scope="row">96</th>
-                  <td>Pedro Luks Carvalho</td>
-                  <td>456.876.789-95</td>
-                  <td>09/12/1978</td>
-                  <td>Inativo</td>
-                  <td><button class="btn btn-success btn-sm">Ativar</button></td>
-                  <td><a href="admin-listar-cliente.html"><button class="btn btn-info btn-sm">Ver Cliente</button></td></a>
-                </tr>
+                  <th scope="row">COMBO300</th>
+                  <td>300 Reais de Desconto em compra acima de R$ 1000</td>
+                  <td>Inativo</td>    
+                  <td><button class="btn btn-success btn-sm">Ativar</button></td>                             
+                  <td><button class="btn btn-danger btn-sm">Excluir</button></td>
+
 
               </tbody>
             </table>
@@ -188,8 +168,69 @@
       </div>
     </div>
 
+  <!-- Modal Novo Cupom -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+
+        <div class="modal-body">
+
+          <section id="cliente" class="cliente">
+            <div class="container" style=" margin-bottom: -30px;">
+              <div class="section-title2">
+                <h2> <span style="color: rgb(13, 236, 181);">Novo Cupom </span></h2>
+              </div>
+            </div>
+
+            <!--Form-->
+            <div class="container mt-5">
+              <form class="needs-validation" novalidate action="">
+                <!--Novo Produto-->
+
+                <!--Box Produto-->
+                <div class="info-wrap">
+
+                  <h4> <strong style="padding-left: 10px; color: rgb(13, 236, 181);"> Cadastrar Cupom</strong></h4><br>
+
+                  <div class="row">                 
+                    
+
+                    <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                      <span>Código</span>
+                      <input asp-for="Código" class="form-control" id="codigo-cupom" placeholder="Digite o código do cupom" required>
+                      <div class="invalid-feedback">
+                        *Campo obrigatório
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                      <span>Descrição</span>
+                      <input asp-for="descricao" class="form-control" id="descricao-cupom" placeholder="Digite a descrição do cupom" required>
+                      <div class="invalid-feedback">
+                        *Campo obrigatório
+                      </div>
+                    </div>
+                  </div>
+                  <br> <br>
+                  <div>
+                    <button class="btn btn-success col-lg-12">Salvar</button>
+                  </div>
+              </form>
+              <br>
+            </div>
+
+          </section>
+          <br>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
   </section>
+
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

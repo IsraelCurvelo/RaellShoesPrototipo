@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>RaellShoes - Admin - Procurar cliente</title>
+  <title>RaellShoes - Admin - Procurar troca</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -67,54 +67,29 @@
       <!--Box Clientes-->
       <div class="info-wrap" style=" border-radius:20px">
 
-        <h5><strong style="  color: rgb(13, 236, 181);">Procurar Cliente </strong></h5><br>
+        <h5><strong style="  color: rgb(228, 13, 236);">Procurar Troca </strong></h5><br>
 
         <div class="row">
           <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Nome</span>
-            <input asp-for="Nome" class="form-control" id="name" placeholder="Digite o nome do cliente" minlength="3">
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>CPF</span>
-            <input asp-for="Cpf" class="form-control" id="cpf" placeholder="Digite o CPF do cliente" maxlength="14"
-              onkeypress="formatar('###.###.###-##', this);" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}">
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Data de Nascimento</span>
-            <input asp-for="DataNascimento" class="form-control" id="dataNascimento" type="date"
-              placeholder="Data de Nascimento">
-
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Gênero</span>
-            <br>
-            <select asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
-              class="form-select">
-              <option></option>
-              <option value="1">Masculino</option>
-              <option value="2">Feminino</option>
-            </select>
+            <span>Número do pedido</span>
+            <input asp-for="Nome" class="form-control" id="numero-pedido" placeholder="Número do pedido">
           </div>
 
           <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Email</span>
-            <input asp-for="Nome" class="form-control" id="name" placeholder="Digite o email do cliente" minlength="3">
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Telefone</span>
-            <input asp-for="Cpf" class="form-control" id="cpf" placeholder="Digite o telefone do cliente" maxlength="14"
-              onkeypress="formatar('#####-####', this);" pattern="[0-9]{4}-[0-9]{5}||[0-9]{5}-[0-9]{4}">
-          </div>
-          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
-            <span>Data de Cadastro</span>
-            <input asp-for="DataNascimento" class="form-control" id="dataNascimento" type="date"
-              placeholder="Data de Nascimento">
+            <span>Data de Solicitação</span>
+            <input asp-for="DataPedido" class="form-control" id="data-pedido" type="date" placeholder="Data de Solicitação">
 
           </div>
+                  
+          <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+            <span>CPF do Cliente</span>
+            <input asp-for="CPF_Cliente" class="form-control" id="cpf-cliente" placeholder="CPF do Cliente">
+          </div>
+          
           <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
             <span>Status</span>
             <br>
-            <select asp-for="Genero" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
+            <select asp-for="Status" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
               class="form-select">
               <option></option>
               <option value="1">Ativo</option>
@@ -133,51 +108,52 @@
     <div class="container mt-5" id="resultado" hidden>
       <!--Box ultimos clientes-->
       <div class="info-wrap" style=" border-radius:20px; text-align: center;">
-        <h5><strong style="  color: rgb(13, 236, 181);">Resultado </strong></h5><br>
+        <h5><strong style="  color: rgb(228, 13, 236);">Resultado </strong></h5><br>
 
         <div class="row" style="text-align: center;">
           <div class="col-lg-12 col-md-2 form-group mt-3 mt-md-0" id="comb-form" readonly>
             <table class="table table-hover col-lg-10">
               <thead>
                 <tr>
-                  <th scope="col">Código</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">CPF</th>
-                  <th scope="col">Data de Nascimento</th>
+                  <th scope="col">Código</th>                  
+                  <th scope="col">Número do pedido</th>
+                  <th scope="col">CPF do Cliente</th> 
+                  <th scope="col">Quantidade</th>                 
+                  <th scope="col">Data de Solicitação</th>
                   <th scope="col">Status</th>
                   <th scope="col"></th>
-                  <th scope="col"></th>
+                  
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">98</th>
-                  <td>João da Silva</td>
+                  <td>3225-6</td>
                   <td>123.123.123-12</td>
-                  <td>12/07/1990</td>
-                  <td>Ativo</td>
-                  <td><button class="btn btn-warning btn-sm">Inativar</button></td>
-                  <td><a href="admin-listar-cliente.html"><button class="btn btn-info btn-sm">Ver Cliente</button></td></a>
+                  <td>2</td>
+                  <td>18/03/2022</td>
+                  <td>EM TROCA</td>                  
+                  <td><a href="admin-listar-troca.html"><button class="btn btn-info btn-sm">Ver Solicitação</button></td></a>
                 </tr>
 
                 <tr>
-                  <th scope="row">97</th>
-                  <td>Maria Soares</td>
+                  <th scope="row">67</th>
+                  <td>43254-8</td>
                   <td>123.455.673-92</td>
-                  <td>24/07/1989</td>
-                  <td>Ativo</td>
-                  <td><button class="btn btn-warning btn-sm">Inativar</button></td>
-                  <td><a href="admin-listar-cliente.html"><button class="btn btn-info btn-sm">Ver Cliente</button></td></a>
+                  <td>1</td>
+                  <td>18/03/2022</td>
+                  <td>EM TRÂNSITO</td>                  
+                  <td><a href="admin-listar-troca.html"><button class="btn btn-info btn-sm">Ver Solicitação</button></td></a>
                 </tr>
 
                 <tr>
-                  <th scope="row">96</th>
-                  <td>Pedro Luks Carvalho</td>
+                  <th scope="row">16</th>
+                  <td>434-3</td>
                   <td>456.876.789-95</td>
-                  <td>09/12/1978</td>
-                  <td>Inativo</td>
-                  <td><button class="btn btn-success btn-sm">Ativar</button></td>
-                  <td><a href="admin-listar-cliente.html"><button class="btn btn-info btn-sm">Ver Cliente</button></td></a>
+                  <td>3</td>
+                  <td>09/02/2021</td>
+                  <td>ENTREGUE</td>                  
+                  <td><a href="admin-listar-troca.html"><button class="btn btn-info btn-sm">Ver Solicitação</button></td></a>
                 </tr>
 
               </tbody>

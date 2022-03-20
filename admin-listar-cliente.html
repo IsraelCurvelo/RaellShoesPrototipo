@@ -34,28 +34,29 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index-logado.html">RaellShoes<span>.</span></a></h1>
+      <h1 class="logo"><a href="admin-index.html">RaellShoes<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
     </div>
     <nav id="navbar" class="navbar">
       <ul>
-        <li class="dropdown  active"><a href="#"><span>Parâmetros</span> <i class="bi bi-chevron-down"></i></a>
-          <ul> 
-            <li><a href="">Grupo de Precificação</a></li> 
-            <li><a href="">Fornecedor</a></li>                                   
-          </ul>
-        </li>
-        <li><a class="nav-link scrollto" href="">Cupons</a></li>
-        <li><a class="nav-link scrollto" href="">Trocas</a></li>
-        <li><a class="nav-link scrollto" href="">Pedidos</a></li>
-        <li><a class="nav-link scrollto" href="">Clientes</a></li>
-        <li><a class="nav-link scrollto" href="">Produtos</a></li>
-        <li><a class="nav-link scrollto" href=""></a></li>
+          <li class="dropdown  active"><a href="#"><span>Parâmetros</span> <i class="bi bi-chevron-down"></i></a>
+              <ul> 
+                <li><a href="admin-parametro-grupoprecificacao.html">Grupo de Precificação</a></li> 
+                <li><a href="admin-parametro-fornecedor.html">Fornecedor</a></li>     
+                <li><a href="admin-parametro-categoria.html">Categoria</a></li>                                
+              </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="admin-procurar-cupom.html">Cupons</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-troca.html">Trocas</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-pedido.html">Pedidos</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-cliente.html">Clientes</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-produto.html">Produtos</a></li>
+          <li><a class="nav-link scrollto" href=""></a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
+  </nav><!-- .navbar -->
 
 
   </header><!-- End Header -->
@@ -73,7 +74,7 @@
 
     <!--Form-->
     <div class="container mt-5">
-      <form action="index-logado.html" id="form-cliente" class="needs-validation" novalidate>
+      <form action="admin-index.html" id="form-cliente" class="needs-validation" novalidate>
 
         <!--Box Dados Pessoais-->
         <div class="info-wrap">
@@ -330,7 +331,7 @@
   <script>
 
     function encerrarConta() {
-      return confirm("Deseja realmente excluir sua conta?");
+      return confirm("Deseja realmente inativar este cliente?");
 
       //Swal.fire({
       //    title: 'Você tem certeza?',

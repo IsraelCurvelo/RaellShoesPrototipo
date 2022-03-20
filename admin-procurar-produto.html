@@ -34,28 +34,29 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index-logado.html">RaellShoes<span>.</span></a></h1>
+      <h1 class="logo"><a href="admin-index.html">RaellShoes<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
     </div>
     <nav id="navbar" class="navbar">
       <ul>
-        <li class="dropdown  active"><a href="#"><span>Parâmetros</span> <i class="bi bi-chevron-down"></i></a>
-          <ul> 
-            <li><a href="">Grupo de Precificação</a></li> 
-            <li><a href="">Fornecedor</a></li>                                   
-          </ul>
-        </li>
-        <li><a class="nav-link scrollto" href="">Cupons</a></li>
-        <li><a class="nav-link scrollto" href="">Trocas</a></li>
-        <li><a class="nav-link scrollto" href="">Pedidos</a></li>
-        <li><a class="nav-link scrollto" href="">Clientes</a></li>
-        <li><a class="nav-link scrollto" href="">Produtos</a></li>
-        <li><a class="nav-link scrollto" href=""></a></li>
+          <li class="dropdown  active"><a href="#"><span>Parâmetros</span> <i class="bi bi-chevron-down"></i></a>
+              <ul> 
+                <li><a href="admin-parametro-grupoprecificacao.html">Grupo de Precificação</a></li> 
+                <li><a href="admin-parametro-fornecedor.html">Fornecedor</a></li>     
+                <li><a href="admin-parametro-categoria.html">Categoria</a></li>                                
+              </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="admin-procurar-cupom.html">Cupons</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-troca.html">Trocas</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-pedido.html">Pedidos</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-cliente.html">Clientes</a></li>
+          <li><a class="nav-link scrollto" href="admin-procurar-produto.html">Produtos</a></li>
+          <li><a class="nav-link scrollto" href=""></a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
+  </nav><!-- .navbar -->
 
 
   </header><!-- End Header -->
@@ -207,6 +208,19 @@
               minlength="3">
           </div>
 
+          <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+            <span>Fornecedor</span>
+            <br>
+            <select asp-for="fornecedor" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
+              class="form-select">
+              <option></option>
+              <option value="1">Company Shoes</option>
+              <option value="2">Nike Brasil</option>
+              <option value="3">Shoes Brasil</option>
+              <option value="4">Adidas Outlet</option>
+            </select>
+          </div>
+
 
 
         </div><br><br>
@@ -247,7 +261,7 @@
                   <td>40</td>
                   <td>Ativo</td>
                   <td><button class="btn btn-warning btn-sm">Inativar</button></td>
-                  <td><button class="btn btn-info btn-sm">Ver Produto</button></td>
+                  <td><a href="admin-listar-produto.html"><button class="btn btn-info btn-sm">Ver Produto</button></td></a>
                 </tr>
 
                 <tr>
@@ -258,7 +272,7 @@
                   <td>42</td>
                   <td>Ativo</td>
                   <td><button class="btn btn-warning btn-sm">Inativar</button></td>
-                  <td><button class="btn btn-info btn-sm">Ver Produto</button></td>
+                  <td><a href="admin-listar-produto.html"><button class="btn btn-info btn-sm">Ver Produto</button></td></a>
                 </tr>
 
                 <tr>
@@ -269,7 +283,7 @@
                   <td>42</td>
                   <td>Inativo</td>
                   <td><button class="btn btn-success btn-sm">Ativar</button></td>
-                  <td><button class="btn btn-info btn-sm">Ver Produto</button></td>
+                  <td><a href="admin-listar-produto.html"><button class="btn btn-info btn-sm">Ver Produto</button></td></a>
                 </tr>
 
               </tbody>
@@ -459,6 +473,22 @@
                     <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
                       <span>Quantidade</span>
                       <input asp-for="quantidade" class="form-control" id="qtd" type="number" min="0" required>
+                      <div class="invalid-feedback">
+                        *Campo obrigatório
+                      </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 form-group mt-3 mt-md-0" id="comb-form">
+                      <span>Fornecedor</span>
+                      <br>
+                      <select asp-for="fornecedor" asp-items="Html.GetEnumSelectList<RaellShoes.Models.Enums.Genero>()"
+                        class="form-select" required>
+                        <option></option>
+                        <option value="1">Company Shoes</option>
+                        <option value="2">Nike Brasil</option>
+                        <option value="3">Shoes Brasil</option>
+                        <option value="4">Adidas Outlet</option>
+                      </select>
                       <div class="invalid-feedback">
                         *Campo obrigatório
                       </div>
